@@ -1,0 +1,96 @@
+.header{
+    background-color: #fff;
+    box-shadow: 0px 0px 10px #999;
+    height: 80px;
+}
+.header .logo img{
+    width: 150px;
+    height: auto;
+}
+.header .smile img{
+    width: 30px;
+    height: auto;
+    padding: 3px;
+}
+.menu{
+    height: 50px;
+    border-radius: 0px 0px 20px 20px;
+    color:#fff;
+    background-color: red;
+ 
+
+}
+.nav_right{
+    direction: rtl;
+    
+}
+.nav_right li{
+    padding-right: 15px;
+    float: right;
+    list-style: none;
+}
+.nav_left li{
+    padding-right: 15px;
+    float: left;
+    list-style: none;
+}
+#top_header img{
+    width: 400px;
+}
+#top_header h3{
+    direction: rtl;
+    padding-top: 100px;
+}
+#top_header p{
+    direction: rtl;
+}
+#top_header a{
+    direction: rtl;
+   
+}
+.about_us{
+    height: 500px;
+    width: 100%;
+    background-color: #eee;
+    border-radius: 10px;
+    box-shadow: 0ox 0ox 10ox #999;
+}
+#abour_us h3{
+    padding-top: 50px;
+}
+.p_1{
+    direction: rtl;
+    text-align: justify ;
+    padding: 50px 150px;
+}
+.p_2{
+    background-color: #fff;
+    margin: 30px 130px;
+    padding: 30px 30px;
+    direction: rtl;
+    text-align: justify;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px #e7e7e7;
+}
+.back_why_us{
+    background-color: #eee;
+    margin: 20px 50px;
+    border-radius: 10px;
+    height: 200px;
+}
+.back_why_us h4{
+    direction: rtl;
+    padding: 20px;
+    color: red;
+}
+.back_why_us p{
+    direction: rtl;
+    text-align: justify;
+    padding: 0px 20px 0px 0px;
+}
+.back_why_us img{
+    width: 400px;
+    position: relative;
+    top: -100px;
+    left: -100px;
+}
