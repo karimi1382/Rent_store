@@ -1,917 +1,690 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ URL::asset('mymain.css') }}" />
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css'>
- 
-</head>
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>DigiMedia - Creative SEO HTML5 Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ URL::asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{{ URL::asset('assets/css/fontawesome.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('assets/css/templatemo-digimedia-v1.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('assets/css/animated.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('assets/css/owl.css') }}">
+<!--
+
+TemplateMo 568 DigiMedia
+
+https://templatemo.com/tm-568-digimedia
+
+-->
+  </head>
 
 <body>
-    <div class="mobile_disable">
-    <section id="header" class="fixed-top">
-        <div class="container-fluid header ">
-            <div class="container">
-                <div class="row">
-                <div class="col text-start mt-4 smile">
-                    <p> <span><img src="{{ URL::asset('images/icon_1.png') }}" alt="smile"/></span>بازدید از وب سایت با ویو ابدی</p>
-                </div>
-                <div class="col text-end mt-4 logo"><img src="{{ URL::asset('images/logo.png') }}" alt="logo" /></div>
-                </div>
-            </div>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- Pre-header Starts -->
+  <div class="pre-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-sm-8 col-7">
+          <ul class="info">
+            <li><a href="#"><i class="fa fa-envelope"></i>mydomain@company.com</a></li>
+            <li><a href="#"><i class="fa fa-phone"></i>010-020-0340</a></li>
+          </ul>
         </div>
-        <div class="container">
-            <div class="row">
-                
-            <div class="col menu">
-                <div class="row">
-                    <div class="col text-start pt-2 px-4  nav_left">
-                        <li>ورود</li>
-                        <li>|</li>
-                        <li>عضویت رایگان</li>
-                    </div>
-                    <div class="col-7 text-end pt-2 px-4 nav_right">
-                        <li>صفحه نخست</li>
-                        <li>درباره ما</li>
-                        <li>خدمات</li>
-                        <li>فروشگاه ساز</li>
-                        <li>قیمت</li>
-                        <li>بلاگ</li>
-                        <li>تماس با ما</li>
-                    </div>
-                </div>
-            </div>
+        <div class="col-lg-4 col-sm-4 col-5">
+          <ul class="social-media">
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-behance"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+          </ul>
         </div>
-    </section>
-    <section id="top_header">
-        <div class="container">
-            <div class="row">
-                <div class="col"><img class="mx-auto d-block" src="{{ URL::asset('images/pic_1.png') }}" alt="header_top"/></div>
-                <div class="col-7 text-end">
-                    <h3>فروشگاه خودتو با قیمت باورنکردنی به نام خودت اجاره کن</h3>
-                    <p>و به تمام دنیا به صورت آنلاین کسب و کارتو معرفی کن</p>
-                    <a href="" class="btn btn-danger">شروع فرایند</a>
-                </div>
-            </div>
+      </div>
+    </div>
+  </div>
+  <!-- Pre-header End -->
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+            <a href="index.html" class="logo">
+              <img src="{{ URL::asset('assets/images/logo-v1.png') }}" alt="">
+            </a>
+            <!-- ***** Logo End ***** -->
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav rtl">
+              <li class="scroll-to-section"><a href="#top" class="active">صفحه نخست</a></li>
+              <li class="scroll-to-section"><a href="#about">درباره ما</a></li>
+              <li class="scroll-to-section"><a href="#services">خدمات</a></li>
+              <li class="scroll-to-section"><a href="#portfolio">مشترکین </a></li>
+              <li class="scroll-to-section"><a href="#blog">بلاگ</a></li>
+              <li class="scroll-to-section"><a href="#contact">تماس با ما</a></li> 
+              <li class="scroll-to-section"><div class="border-first-button"><a href="#contact">ثبت نام | ورود</a></div></li> 
+            </ul>        
+            <a class='menu-trigger'>
+                <span>منو سایت</span>
+            </a>
+            <!-- ***** Menu End ***** -->
+          </nav>
         </div>
-    </section>
-    <section id="abour_us">
-        <div class="container">
-            <div class="row">
-                <div class="col about_us">
-                    <h3 class="text-center">مای استوری چه کار میکند ؟</h3>
-                    <p class="p_1">
-                    يكى از دلايل نداشتن وب سايت براى شركت ها وفروشكاه هاى اينترنتى اين است كه نميخواهند تا زمانى كه كسب كارشان نگرفته برای
-آن هزينه هاى بالايى انجام بدن ... يا ممكنه نيرويى نداشته باشن كه سايتشونو به روز بكنه و يا سفارشاتشونو پاسخ بده !ماى استور اين
-مشكل را با اجاره فروشكاه اينترنتى حل كرده ! شما ميتونين با هزينه اى نا چيز فروشكاه و يا وب سايت خودتونو براى هرچند ماه كه
-لازم دارين اجاره كنين. اكر كسب كارتون كرفت وخوب بود ميتونين در آينده مالكيتو داشته باشيد و روى هاست خودتون انتقالش بديد!
-البته نا گفته نمونه که شما میتونین سایتی که اجاره کردید رو روی دامنه خودتون بیارین بالا !
+      </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
 
-                    </p>
-                    <p class="p_2">
-                        
-روى فروشكاه ساز بزن، نوع كسب وكارتو انتخاب كن وقالب هارو ببين ... خبر خوب اينه شما ميتونين دمو زنده از فروشگاهی كه قرار
-داشته باشیدو قبل اجارە ببینین ! دیگە چی بهتر از این ؟
-                    </p>
-                </div>
+  <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+                <img src="{{ URL::asset('assets/images/slider-dec.png') }}" alt="">
+              </div>
             </div>
-            <div class="row">
-                <div class="col text-end">
-                    <h3><span><img src="{{ URL::asset('images/icon_2.png') }}" alt="icon_logo"/></span>چرا مای استور ؟</h3>
-                </div>
-            </div>
-            <div class="row back_why_us">
-                <div class="col img_left">
-                    <img src="{{ URL::asset('images/pic_why_1.png') }}" alt="pic_why_us_1"/>
-                </div>
-                <div class="col-7">
-                    <h4>قبل از اجازه دمو لایو از سایتت رو ببین</h4>
-                    <p>
-                    اين خيلى مهم هست كه شما قبل از داشتن فروشكاهت وپرداخت
-هزينه اى خروجى كارتو بتونى ببينى ... ماى استوراين قابليت رو بهت
-میده اول فروشگاه چینده شده رو ببینین بعد اونو اجاره کنی!
-                    </p>
-                </div>
-            </div>
-            <div class="row back_why_us row_next">
-                
-                <div class="col-7">
-                    <h4>قبل از اجازه دمو لایو از سایتت رو ببین</h4>
-                    <p>
-                    اين خيلى مهم هست كه شما قبل از داشتن فروشكاهت وپرداخت
-هزينه اى خروجى كارتو بتونى ببينى ... ماى استوراين قابليت رو بهت
-میده اول فروشگاه چینده شده رو ببینین بعد اونو اجاره کنی!
-                    </p>
-                </div>
-                <div class="col right_img">
-                    <img src="{{ URL::asset('images/pic_why_2.png') }}" alt="pic_why_us_2"/>
-                </div>
-            </div>
-            <div class="row back_why_us row_next">
-                <div class="col img_left">
-                    <img src="{{ URL::asset('images/pic_why_3.png') }}" alt="pic_why_us_3"/>
-                </div>
-                <div class="col-7">
-                    <h4>قبل از اجازه دمو لایو از سایتت رو ببین</h4>
-                    <p>
-                    اين خيلى مهم هست كه شما قبل از داشتن فروشكاهت وپرداخت
-هزينه اى خروجى كارتو بتونى ببينى ... ماى استوراين قابليت رو بهت
-میده اول فروشگاه چینده شده رو ببینین بعد اونو اجاره کنی!
-                    </p>
-                </div>
-            </div>
-            <div class="row back_why_us row_next">
-                
-                <div class="col-7">
-                    <h4>قبل از اجازه دمو لایو از سایتت رو ببین</h4>
-                    <p>
-                    اين خيلى مهم هست كه شما قبل از داشتن فروشكاهت وپرداخت
-هزينه اى خروجى كارتو بتونى ببينى ... ماى استوراين قابليت رو بهت
-میده اول فروشگاه چینده شده رو ببینین بعد اونو اجاره کنی!
-                    </p>
-                </div>
-                <div class="col right_img">
-                    <img src="{{ URL::asset('images/pic_why_4.png') }}" alt="pic_why_us_4"/>
-                </div>
-            </div>
-        </div>
-
-    </section>
-    <section id="service">
-            <div class="container">
+            <div class="col-lg-6 align-self-center">
+              <div class="left-content show-up header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
                 <div class="row">
-                    <div class="col text-end">
-                        <h3><span><img src="{{ URL::asset('images/icon_2.png') }}" alt="icon_logo"/></span>چه امکاناتی رو توی سایتتون میتونین داشته باشید ؟</h3>
+                  <div class="col-lg-12 rtl">
+                    <h6>آژانس اجاره وب سایت</h6>
+                    <h2>به راحتی وب سایتت رو اجاره کن</h2>
+                    <p> به جای هزینه زیاد ساخت وب سایت به راحتی با چند کلیک و با قیمت باور نکردنی وب سایتتو اجاره کن</p>
+                  </div>
+                  <div class="col-lg-12 rtl">
+                    <div class="border-first-button scroll-to-section">
+                      <a href="#contact">فروشگاه ساز</a>
                     </div>
+                  </div>
                 </div>
-                <div class="box_all">
-                    <div class="row">
-                        <div class="col service_box">
-                            <div class="row">
-                                <div class="col">
-                                    <h5>روش های متنوع ارسال</h5>
-                                    <p>امکان انتخاب روش های متنوع ارسال کارا همراه با درج قیمت برای هر روش به طوری که به صورت خودکار در قیمت محصول اضافه شود</p>
-                                </div>
-                                <div class="col-3"><img src="{{ URL::asset('images/icon_service_1.png') }}" alt="icon_service"/></div>
-                            </div>
-                        </div>
-                        <div class="col service_box">
-                            <div class="row">
-                                <div class="col">
-                                    <h5>امکان اتصال درگاه</h5>
-                                    <p>
-                                        امکان تعریف و اتصال به درگاه های متفاوت بانک ها در فروشگاه های اینترنتی کسب و کار شما دیده شده است
-                                    </p>
-                                </div>
-                                <div class="col-3"><img src="{{ URL::asset('images/icon_service_2.png') }}" alt="icon_service"/></div>
-                            </div>
-                        </div>
-                        <div class="col service_box">
-                            <div class="row">
-                                <div class="col">
-                                    <h5>آدرس سایت اختصاصی</h5>
-                                    <p>
-                                        شما میتوانید آدرس سایت اختصاصی خودتون رو داشته باشید. هم میتونین آدرس رو انتخاب کنین هم میتونین دامنه جدا برای سایت اجاره ای شما اختصاص داده بشه که بازدید کننده متوجه اجاره ای بودن فروشگاه شما نشه !
-                                    </p>                                
-                                </div>
-                                <div class="col-3"><img src="{{ URL::asset('images/icon_service_3.png') }}" alt="icon_service"/></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col service_box">
-                            <div class="row">
-                                <div class="col">
-                                    <h5>پشتیبانی ۲۴ ساعته</h5>
-                                    <p>
-                                        با توجه به داشتن سیستم تیکتینگ در کارتابل شخصی خودتون در این سایت میتونین هر سوالی داشتین از کارشناسان ما به صورت آنلاین بپرسید و منتظر پتسخ باشید
-                                    </p>                                
-                                </div>
-                                <div class="col-3"><img src="{{ URL::asset('images/icon_service_4.png') }}" alt="icon_service"/></div>
-                            </div>
-                        </div>
-                        <div class="col service_box">
-                            <div class="row">
-                                <div class="col">
-                                    <h5>پنل مدیریت سایت</h5>
-                                    <p>
-                                        فرقی نمیکنه سایت تجاری اجاره کنین یا فروشگاه اینترنتی... همه کارای سایت رو توسط پنل مدیریتی انجام میدید که آموزششو براتون گذاشتیم و اصلا نیاز نیست دانش قبلی داشته باشید
-                                    </p>                                
-                                </div>
-                                <div class="col-3"><img src="{{ URL::asset('images/icon_service_5.png') }}" alt="icon_service"/></div>
-                            </div>
-                        </div>
-                        <div class="col service_box">
-                            <div class="row">
-                                <div class="col">
-                                    <h5>حسابداری فروش</h5>
-                                    <p>
-                                        اگر فروشگاه اینترنتی اجاره کردید نگران حساب کتاباتون نباشید. یه حسابداری کوچیک داریم که تمام درامد و واریزی هایی که انجام شده رو تو قالب گزارش براتون تو هر بازه زمانی بخوایین آماده میکنه بهتون میده
-                                    </p>                                
-                                </div>
-                                <div class="col-3"><img src="{{ URL::asset('images/icon_service_6.png') }}" alt="icon_service"/></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col service_box">
-                            <div class="row">
-                                <div class="col">
-                                    <h5>طراحی اختصاصی سایت</h5>
-                                    <p>
-                                        درسته یکسری قالب گذاشتیم انتخاب کنین ولی اگه پلتون بخواد میتونیم براتون همون قالب هارو شخصی سازی کنیم یا براتون یه قالبی که دوست دارید و جایی دیدید بهمون بدید براتون بسازیمش... یکسری خدمات شخصی سازی رایگانه حتما ازش استفاده کنین
-                                    </p>                                
-                                </div>
-                                <div class="col-3"><img src="{{ URL::asset('images/icon_service_7.png') }}" alt="icon_service"/></div>
-                            </div>
-                        </div>
-                        <div class="col service_box">
-                            <div class="row">
-                                <div class="col">
-                                    <h5>سئو سایت</h5>
-                                    <p>
-                                        سایت هایی که از ما اجاره میکنین تمامش کد نویسی استاندارد داره ولی ما با راهنمایی هایی کهع گذاشتیم میتونین خودتونو توی موتور جستجو های سایت بالا ببرید و یکسری خدمات رایگان داشته باشید که فروشتونو ببرید بالا
-                                    </p>                                
-                                </div>
-                                <div class="col-3"><img src="{{ URL::asset('images/icon_service_8.png') }}" alt="icon_service"/></div>
-                            </div>
-                        </div>
-                        <div class="col service_box">
-                            <div class="row">
-                                <div class="col">
-                                    <h5>خدمات جذب بازدید بالا</h5>
-                                    <p>
-                                        ما برای سایت اصلی کلی زحمت میکشیم که دیده بشه و وقتی اسم سایت شما تو لیست فروشگاه های برتر ما باشه قطعا برای دیدن کار ما به فروشگاهتون سر میزنن و همین باعث میشه بازدید سایتتون بره بالا و بیشتر دیده بشید دیگه چی بهتر از این !
-                                    </p>                                
-                                </div>
-                                <div class="col-3"><img src="{{ URL::asset('images/icon_service_9.png') }}" alt="icon_service"/></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                   
-            </div>
-    </section>
-    <section id="store">
-        <div class="container-fluid store_back">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <a href="#" class="btn btn-danger">همه فروشگاه ها</a>
-                    </div>
-                    <div class="col text-end">
-                        <h3><span><img src="{{ URL::asset('images/icon_2.png') }}" alt="icon_logo"/></span>جدید ترین فروشگاه های اجاره داده شده</h3>
-                    </div>
-                    
-                </div>
-                <div class="row">
-                    <div class="col-4 rtl">
-                        <div class="box m-2">
-                            <div class="row">
-                                <div class="col">
-                                    <img src="{{ URL::asset('images/store_1.jpg') }}" alt="store_pic"/>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <h5>نام فروشگاه</h5>
-                                    <p>زمینه کاری فروشگاه</p>
-                                    <a href="#" class="btn btn-danger">مشاهده</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-4 rtl">
-                        <div class="box m-2">
-                            <div class="row">
-                                <div class="col">
-                                    <img src="{{ URL::asset('images/store_1.jpg') }}" alt="store_pic"/>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <h5>نام فروشگاه</h5>
-                                    <p>زمینه کاری فروشگاه</p>
-                                    <a href="#" class="btn btn-danger">مشاهده</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-4 rtl">
-                        <div class="box m-2">
-                            <div class="row">
-                                <div class="col">
-                                    <img src="{{ URL::asset('images/store_1.jpg') }}" alt="store_pic"/>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <h5>نام فروشگاه</h5>
-                                    <p>زمینه کاری فروشگاه</p>
-                                    <a href="#" class="btn btn-danger">مشاهده</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-4 rtl">
-                        <div class="box m-2">
-                            <div class="row">
-                                <div class="col">
-                                    <img src="{{ URL::asset('images/store_1.jpg') }}" alt="store_pic"/>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <h5>نام فروشگاه</h5>
-                                    <p>زمینه کاری فروشگاه</p>
-                                    <a href="#" class="btn btn-danger">مشاهده</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-4 rtl">
-                        <div class="box m-2">
-                            <div class="row">
-                                <div class="col">
-                                    <img src="{{ URL::asset('images/store_1.jpg') }}" alt="store_pic"/>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <h5>نام فروشگاه</h5>
-                                    <p>زمینه کاری فروشگاه</p>
-                                    <a href="#" class="btn btn-danger">مشاهده</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-4 rtl">
-                        <div class="box m-2">
-                            <div class="row">
-                                <div class="col">
-                                    <img src="{{ URL::asset('images/store_1.jpg') }}" alt="store_pic"/>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <h5>نام فروشگاه</h5>
-                                    <p>زمینه کاری فروشگاه</p>
-                                    <a href="#" class="btn btn-danger">مشاهده</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                   
-                    
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="faq">
-        <div class="container pt-2 pb-5">
-            <div class="row">
-                
-                <div class="col text-end rtl">
-                    <h3><span><img src="{{ URL::asset('images/icon_2.png') }}" alt="icon_logo"/></span>برخی از سوالات شما</h3>
-                </div>
-                
-            </div>
-            <div class="row rtl text-justify">
-
-                <button class="accordion">چطور میتوانم لایور فروشگاهی که قرار هست اجاره کنم را ببینم ؟</button>
-                <div class="panel">
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                </div>
-
-                <button class="accordion">حداقل و حداکثر چند ماه میتوانم فروشگاه را اجاره کنم ؟</button>
-                <div class="panel">
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                </div>
-
-                <button class="accordion">آدرس فروشگاه من چی هست و امکان هست که خودم آدرس فروشگاه را انتخاب کنم ؟</button>
-                <div class="panel">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                </div>
-
-                <button class="accordion">بعد از اتمام قرار داد به اطلاعات فروشگاهم دسترسی دارم ؟</button>
-                <div class="panel">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                </div>
-  
-                <button class="accordion">اگر بخواهم میتوانم فروشگهام را روی هاست خودم انتقال بدهم ؟</button>
-                <div class="panel">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                </div>
-
-                <button class="accordion">چطور میتوانم فروشگاهم را سفارش دهم ؟</button>
-                <div class="panel">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="email">
-        <div class="container">
-            <div class="row">
-                <div class="col-4">
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text btn btn-danger" id="basic-addon1"><i class="fa fa-check" aria-hidden="true"></i>
-                          </span>
-                        </div>
-                        <input type="text" class="form-control rtl" placeholder="ایمیل خود را وارد نمایید" aria-label="Username" aria-describedby="basic-addon1">
-                      </div>
-                </div>
-
-                <div class="col-5 text-center pt-2"><h5>از فروشگاه های جدید و تخفیفات ما مطلع شوید</h5></div>
-                <div class="col-3 text-end">
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-telegram" ></i>
-                    <i class="fa  fa-envelope" ></i>
-                    <i class="fab  fa-youtube" ></i>
-                    <i class="fab  fa-linkedin" ></i>
-
-
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <section id="footer">
-        <div class="container-fluid footer_back">
-            <div class="container rtl">
-                <div class="row">
-                    <div class="col-6">
-                        <div class="col">
-                            <img src="{{ URL::asset('images/logo.png') }}" alt="logo"/>
-                            <p>
-                                مای استور برای دوستانی ساخته شده است که دغدغه این را دارند هزینه ساخت وب ساایت یا فروشگاه اینترنتی را پرداخت کنند ولی کسب و کارشون موفق نباشد و این هزینه را دور ریخته باشند. مای استور برای دوستانی ساخحته شده که کارمندی برای به روز رسانی و بارگذاری محنوای کسب و کارشان را ندارد. ماای استور برای دوستانی ساخته شده که میخواهند فروشگاه خود را قبل از ساختن ببینند و بهتر تصمیم بگیرند. کسانی که از کیفیت و محتوای فنی سایت خیالشان راحت باشد و بدون دغدغه تمکز خودشون رو روی کار و مارکت کسب کارشان بگذارند
-                            </p>
-                        </div>
-                </div>
-                    <div class="col-3">
-                        <h4>راه های ارتباطی</h4>
-                        <p>
-                            آدرس: تهران خیابان اول کوچه دوم پلاک سوم
-                        </p>
-                        <p>
-                            دفتر امریکا: فلوریدا تلهسی خیابان پنسولیا
-                        </p>
-                        <p><i class="fa  fa-envelope" ></i>info@mydomain.com</p>
-                    </div>
-                    <div class="col-3">
-                        <h4>لینک های مفید</h4>
-                        <a href="">ورود به پنل کاربری</a><br>
-                        <a href="">ثبت نام</a><br>
-                        <a href="">قوانین و مقررات</a><br>
-                        <a href="">ارتباط با ما</a>
-                    </div>
-
-                </div>
-                <div class="row">
-                    <div class="col text-start copywrite">
-                        CopyRight By Asiawebgroup - 2024
-                    </div>
-                </div>
+              </div>
             </div>
             
+          </div>
         </div>
-        
-    </section>
-  
+      </div>
     </div>
-    
-    <div class="mobile_show  web_disable">
-        <section id="nav_fix_bottom">
-            <nav class="nav">
-            <input id="menu" type="checkbox">
-            <label for="menu">Menu</label>
-            <ul class="menu">
-                <li>
-                <a href="#0">
-                    <span >About</span>
-                    <i class="fas fa-address-card" aria-hidden="true"></i>
-                </a>
-                </li>
-                <li>
-                <a href="#0">
-                    <span>Projects</span>
-                    <i class="fas fa-tasks" aria-hidden="true"></i>
-                </a>
-                </li>
-                <li>
-                <a href="#0">
-                    <span>Clients</span>
-                    <i class="fas fa-users" aria-hidden="true"></i>
-                </a>
-                </li>
-                <li>
-                <a href="#0">
-                    <span>Contact</span>
-                    <i class="fas fa-envelope-open-text" aria-hidden="true"></i>
-                </a>
-                </li>
-                
-            </ul>
-            </nav>
-        </section>
-        <section id="mobile_header">
-            <div class="container text-center">
-                <div class="row">
-                    <div class="col-md logo">
-                        <img src="{{ URL::asset('images/logo.png') }}" alt="logo" />
-                    </div>
-                </div>
-                <div class="col header_img">
-                    <img class="mx-auto d-block" src="{{ URL::asset('images/pic_1.png') }}" alt="header_top"/>
-                </div>
-                <div class="col header_content">
-                    <h3 >فروشگاه خودتو با قیمت باورنکردنی به نام خودت اجاره کن</h3>
-                    <p>و به تمام دنیا به صورت آنلاین کسب و کارتو معرفی کن</p>
-                    <a href="" class="btn btn-danger ">شروع فرایند</a>
-                </div>
-            </div>
-        </section>
-        <section id="content">
-            <div class="container">
-                <div class="row">
-                    <div class="col about_us">
-                        <h3 class="text-end"><span><img src="{{ URL::asset('images/icon_2.png') }}" alt="icon_logo"/></span>مای استوری چه کار میکند ؟</h3>
-                        <p class="p_1">
-                        يكى از دلايل نداشتن وب سايت براى شركت ها وفروشكاه هاى اينترنتى اين است كه نميخواهند تا زمانى كه كسب كارشان نگرفته برای
-    آن هزينه هاى بالايى انجام بدن ... يا ممكنه نيرويى نداشته باشن كه سايتشونو به روز بكنه و يا سفارشاتشونو پاسخ بده !ماى استور اين
-    مشكل را با اجاره فروشكاه اينترنتى حل كرده ! شما ميتونين با هزينه اى نا چيز فروشكاه و يا وب سايت خودتونو براى هرچند ماه كه
-    لازم دارين اجاره كنين. اكر كسب كارتون كرفت وخوب بود ميتونين در آينده مالكيتو داشته باشيد و روى هاست خودتون انتقالش بديد!
-    البته نا گفته نمونه که شما میتونین سایتی که اجاره کردید رو روی دامنه خودتون بیارین بالا !
+  </div>
 
-                        </p>
-                        <p class="p_2">
-                            
-    روى فروشكاه ساز بزن، نوع كسب وكارتو انتخاب كن وقالب هارو ببين ... خبر خوب اينه شما ميتونين دمو زنده از فروشگاهی كه قرار
-    داشته باشیدو قبل اجارە ببینین ! دیگە چی بهتر از این ؟
-                        </p>
-                    </div>
+  <div id="about" class="about section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+            
+            <div class="col-lg-6 rtl align-self-center  wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+              <div class="about-right-content">
+                <div class="section-heading">
+                  <h6>دقیقا کار ما چیست ؟</h6>
+                  <h4>به راحتی <em>وب سایتتو اجاره کن</em></h4>
+                  <div class="line-dec"></div>
                 </div>
-                <div class="row back_why_us">
-                    <div class="col-12 text-end icon">
-                        <h3><span><img src="{{ URL::asset('images/icon_2.png') }}" alt="icon_logo"/></span>چرا مای استور ؟</h3>
-                    </div>
-                        <div class="col-12">
-                            <img src="{{ URL::asset('images/pic_why_1.png') }}" alt="pic_why_us_1"/>
-                       
-                            <h4>قبل از اجازه دمو لایو از سایتت رو ببین</h4>
-                                <p>
-                                اين خيلى مهم هست كه شما قبل از داشتن فروشكاهت وپرداخت
-                                هزينه اى خروجى كارتو بتونى ببينى ... ماى استوراين قابليت رو بهت
-                                میده اول فروشگاه چینده شده رو ببینین بعد اونو اجاره کنی!
-                                </p>
-                       
-                            <img src="{{ URL::asset('images/pic_why_2.png') }}" alt="pic_why_us_2"/>
-                       
-                            <h4>قبل از اجازه دمو لایو از سایتت رو ببین</h4>
-                            <p>
-                                اين خيلى مهم هست كه شما قبل از داشتن فروشكاهت وپرداخت
-                                هزينه اى خروجى كارتو بتونى ببينى ... ماى استوراين قابليت رو بهت
-                                میده اول فروشگاه چینده شده رو ببینین بعد اونو اجاره کنی!
-                            </p>
-                            <img src="{{ URL::asset('images/pic_why_3.png') }}" alt="pic_why_us_3"/>
-                            <h4>قبل از اجازه دمو لایو از سایتت رو ببین</h4>
-                            <p>
-                                اين خيلى مهم هست كه شما قبل از داشتن فروشكاهت وپرداخت
-                                هزينه اى خروجى كارتو بتونى ببينى ... ماى استوراين قابليت رو بهت
-                                میده اول فروشگاه چینده شده رو ببینین بعد اونو اجاره کنی!
-                            </p>
-                            <img src="{{ URL::asset('images/pic_why_4.png') }}" alt="pic_why_us_4"/>
-                            <h4>قبل از اجازه دمو لایو از سایتت رو ببین</h4>
-                            <p>
-                                اين خيلى مهم هست كه شما قبل از داشتن فروشكاهت وپرداخت
-                                هزينه اى خروجى كارتو بتونى ببينى ... ماى استوراين قابليت رو بهت
-                                میده اول فروشگاه چینده شده رو ببینین بعد اونو اجاره کنی!
-                            </p>
-                </div>
-            </div>    
-        </section>
-        <section id="service">
-            <div class="container">
-                <div class="row">
-                    <div class="col text-end ">
-                        <h3 class="rtl icon"><span><img src="{{ URL::asset('images/icon_2.png') }}" alt="icon_logo"/></span>چه امکاناتی رو توی سایتتون میتونین داشته باشید ؟</h3>
-                    </div>
-                </div>
-                <div class="box_all">
-                    <div class="row">
-                        <div class="col-12 service_box">
-                            <div class="row">
-                                <div class="col">
-                                    <h5>روش های متنوع ارسال</h5>
-                                    <p>امکان انتخاب روش های متنوع ارسال کارا همراه با درج قیمت برای هر روش به طوری که به صورت خودکار در قیمت محصول اضافه شود</p>
-                                </div>
-                                <div class="col-3"><img src="{{ URL::asset('images/icon_service_1.png') }}" alt="icon_service"/></div>
-                            </div>
+                <p class="justify_text">یکی از دلایل نداشتن وب سایت برای شرکت و فروششگاه های تازه کار این هست که هزینه داشتن وب سایت و یا نیروی ادمین ویب سایت رو ندارند. شما میتونین با این حدمات وب سایتتونو اجاره کنین و از خدمات رایگان ما استفاده کنین تا سرهت رشد کسب کارتونو چند برابر کنین بدون این که کسی متوجه بشه شما وب سایت اجاره کردید. این یه قرار داد بین ما و شماست            <div class="row">
+                  <div class="col-lg-4 col-sm-4">
+                    <div class="skill-item first-skill-item wow fadeIn" data-wow-duration="1s" data-wow-delay="0s">
+                      <div class="progress" data-percentage="90">
+                        <span class="progress-left">
+                          <span class="progress-bar"></span>
+                        </span>
+                        <span class="progress-right">
+                          <span class="progress-bar"></span>
+                        </span>
+                        <div class="progress-value">
+                          <div>
+                            90%<br>
+                            <span>طراحی</span>
+                          </div>
                         </div>
-                        <div class="col-12 service_box">
-                            <div class="row">
-                                <div class="col">
-                                    <h5>امکان اتصال درگاه</h5>
-                                    <p>
-                                        امکان تعریف و اتصال به درگاه های متفاوت بانک ها در فروشگاه های اینترنتی کسب و کار شما دیده شده است
-                                    </p>
-                                </div>
-                                <div class="col-3"><img src="{{ URL::asset('images/icon_service_2.png') }}" alt="icon_service"/></div>
-                            </div>
-                        </div>
-                        <div class="col-12 service_box">
-                            <div class="row">
-                                <div class="col">
-                                    <h5>آدرس سایت اختصاصی</h5>
-                                    <p>
-                                        شما میتوانید آدرس سایت اختصاصی خودتون رو داشته باشید. هم میتونین آدرس رو انتخاب کنین هم میتونین دامنه جدا برای سایت اجاره ای شما اختصاص داده بشه که بازدید کننده متوجه اجاره ای بودن فروشگاه شما نشه !
-                                    </p>                                
-                                </div>
-                                <div class="col-3"><img src="{{ URL::asset('images/icon_service_3.png') }}" alt="icon_service"/></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-12 service_box">
-                            <div class="row">
-                                <div class="col">
-                                    <h5>پشتیبانی ۲۴ ساعته</h5>
-                                    <p>
-                                        با توجه به داشتن سیستم تیکتینگ در کارتابل شخصی خودتون در این سایت میتونین هر سوالی داشتین از کارشناسان ما به صورت آنلاین بپرسید و منتظر پتسخ باشید
-                                    </p>                                
-                                </div>
-                                <div class="col-3"><img src="{{ URL::asset('images/icon_service_4.png') }}" alt="icon_service"/></div>
-                            </div>
-                        </div>
-                        <div class="col-12 service_box">
-                            <div class="row">
-                                <div class="col">
-                                    <h5>پنل مدیریت سایت</h5>
-                                    <p>
-                                        فرقی نمیکنه سایت تجاری اجاره کنین یا فروشگاه اینترنتی... همه کارای سایت رو توسط پنل مدیریتی انجام میدید که آموزششو براتون گذاشتیم و اصلا نیاز نیست دانش قبلی داشته باشید
-                                    </p>                                
-                                </div>
-                                <div class="col-3"><img src="{{ URL::asset('images/icon_service_5.png') }}" alt="icon_service"/></div>
-                            </div>
-                        </div>
-                        <div class="col-12 service_box">
-                            <div class="row">
-                                <div class="col">
-                                    <h5>حسابداری فروش</h5>
-                                    <p>
-                                        اگر فروشگاه اینترنتی اجاره کردید نگران حساب کتاباتون نباشید. یه حسابداری کوچیک داریم که تمام درامد و واریزی هایی که انجام شده رو تو قالب گزارش براتون تو هر بازه زمانی بخوایین آماده میکنه بهتون میده
-                                    </p>                                
-                                </div>
-                                <div class="col-3"><img src="{{ URL::asset('images/icon_service_6.png') }}" alt="icon_service"/></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-12 service_box">
-                            <div class="row">
-                                <div class="col">
-                                    <h5>طراحی اختصاصی سایت</h5>
-                                    <p>
-                                        درسته یکسری قالب گذاشتیم انتخاب کنین ولی اگه پلتون بخواد میتونیم براتون همون قالب هارو شخصی سازی کنیم یا براتون یه قالبی که دوست دارید و جایی دیدید بهمون بدید براتون بسازیمش... یکسری خدمات شخصی سازی رایگانه حتما ازش استفاده کنین
-                                    </p>                                
-                                </div>
-                                <div class="col-3"><img src="{{ URL::asset('images/icon_service_7.png') }}" alt="icon_service"/></div>
-                            </div>
-                        </div>
-                        <div class="col-12 service_box">
-                            <div class="row">
-                                <div class="col">
-                                    <h5>سئو سایت</h5>
-                                    <p>
-                                        سایت هایی که از ما اجاره میکنین تمامش کد نویسی استاندارد داره ولی ما با راهنمایی هایی کهع گذاشتیم میتونین خودتونو توی موتور جستجو های سایت بالا ببرید و یکسری خدمات رایگان داشته باشید که فروشتونو ببرید بالا
-                                    </p>                                
-                                </div>
-                                <div class="col-3"><img src="{{ URL::asset('images/icon_service_8.png') }}" alt="icon_service"/></div>
-                            </div>
-                        </div>
-                        <div class="col-12 service_box">
-                            <div class="row">
-                                <div class="col">
-                                    <h5>خدمات جذب بازدید بالا</h5>
-                                    <p>
-                                        ما برای سایت اصلی کلی زحمت میکشیم که دیده بشه و وقتی اسم سایت شما تو لیست فروشگاه های برتر ما باشه قطعا برای دیدن کار ما به فروشگاهتون سر میزنن و همین باعث میشه بازدید سایتتون بره بالا و بیشتر دیده بشید دیگه چی بهتر از این !
-                                    </p>                                
-                                </div>
-                                <div class="col-3"><img src="{{ URL::asset('images/icon_service_9.png') }}" alt="icon_service"/></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                   
-            </div>
-    </section>
-    <section id="store">
-        <div class="container-fluid store_back">
-            <div class="container">
-                <div class="row">
-                   
-                    <div class="col-12 text-end rtl ">
-                        <h3 class="icon"><span><img src="{{ URL::asset('images/icon_2.png') }}" alt="icon_logo"/></span>جدید ترین فروشگاه های اجاره داده شده</h3>
-                    </div>
-                    <div class="col-12">
-                        <a href="#" class="btn btn-danger form-control">همه فروشگاه ها</a>
-                    </div>
-                    
-                </div>
-                <div class="row">
-                    <div class="col-12 rtl">
-                        <div class="box m-2">
-                            <div class="row">
-                                <div class="col">
-                                    <img src="{{ URL::asset('images/store_1.jpg') }}" alt="store_pic"/>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <h5>نام فروشگاه</h5>
-                                    <p>زمینه کاری فروشگاه</p>
-                                    <a href="#" class="btn btn-danger">مشاهده</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 rtl">
-                        <div class="box m-2">
-                            <div class="row">
-                                <div class="col">
-                                    <img src="{{ URL::asset('images/store_1.jpg') }}" alt="store_pic"/>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <h5>نام فروشگاه</h5>
-                                    <p>زمینه کاری فروشگاه</p>
-                                    <a href="#" class="btn btn-danger">مشاهده</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 rtl">
-                        <div class="box m-2">
-                            <div class="row">
-                                <div class="col">
-                                    <img src="{{ URL::asset('images/store_1.jpg') }}" alt="store_pic"/>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <h5>نام فروشگاه</h5>
-                                    <p>زمینه کاری فروشگاه</p>
-                                    <a href="#" class="btn btn-danger">مشاهده</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 rtl">
-                        <div class="box m-2">
-                            <div class="row">
-                                <div class="col">
-                                    <img src="{{ URL::asset('images/store_1.jpg') }}" alt="store_pic"/>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <h5>نام فروشگاه</h5>
-                                    <p>زمینه کاری فروشگاه</p>
-                                    <a href="#" class="btn btn-danger">مشاهده</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 rtl">
-                        <div class="box m-2">
-                            <div class="row">
-                                <div class="col">
-                                    <img src="{{ URL::asset('images/store_1.jpg') }}" alt="store_pic"/>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <h5>نام فروشگاه</h5>
-                                    <p>زمینه کاری فروشگاه</p>
-                                    <a href="#" class="btn btn-danger">مشاهده</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 rtl">
-                        <div class="box m-2">
-                            <div class="row">
-                                <div class="col">
-                                    <img src="{{ URL::asset('images/store_1.jpg') }}" alt="store_pic"/>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <h5>نام فروشگاه</h5>
-                                    <p>زمینه کاری فروشگاه</p>
-                                    <a href="#" class="btn btn-danger">مشاهده</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                   
-                    
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="faq">
-        <div class="container pt-2 pb-5">
-            <div class="row">
-                
-                <div class="col text-end rtl">
-                    <h3><span><img src="{{ URL::asset('images/icon_2.png') }}" alt="icon_logo"/></span>برخی از سوالات شما</h3>
-                </div>
-                
-            </div>
-            <div class="row rtl text-justify">
-
-                <button class="accordion">چطور میتوانم لایور فروشگاهی که قرار هست اجاره کنم را ببینم ؟</button>
-                <div class="panel">
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                </div>
-
-                <button class="accordion">حداقل و حداکثر چند ماه میتوانم فروشگاه را اجاره کنم ؟</button>
-                <div class="panel">
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                </div>
-
-                <button class="accordion">آدرس فروشگاه من چی هست و امکان هست که خودم آدرس فروشگاه را انتخاب کنم ؟</button>
-                <div class="panel">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                </div>
-
-                <button class="accordion">بعد از اتمام قرار داد به اطلاعات فروشگاهم دسترسی دارم ؟</button>
-                <div class="panel">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                </div>
-  
-                <button class="accordion">اگر بخواهم میتوانم فروشگهام را روی هاست خودم انتقال بدهم ؟</button>
-                <div class="panel">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                </div>
-
-                <button class="accordion">چطور میتوانم فروشگاهم را سفارش دهم ؟</button>
-                <div class="panel">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="email">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text btn btn-danger" id="basic-addon1"><i class="fa fa-check" aria-hidden="true"></i>
-                          </span>
-                        </div>
-                        <input type="text" class="form-control rtl" placeholder="عضویت در خبرنامه" aria-label="Username" aria-describedby="basic-addon1">
                       </div>
-                </div>
-
-                <div class="col-12 text-center so_icon">
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-telegram" ></i>
-                    <i class="fa  fa-envelope" ></i>
-                    <i class="fab  fa-youtube" ></i>
-                    <i class="fab  fa-linkedin" ></i>
-
-
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <section id="footer">
-        <div class="container-fluid footer_back">
-           
-                <div class="row">
-                    <div class="col text-start copywrite">
-                        CopyRight By Asiawebgroup - 2024
                     </div>
-                </div>
+                  </div>
+                  <div class="col-lg-4 col-sm-4">
+                    <div class="skill-item second-skill-item wow fadeIn" data-wow-duration="1s" data-wow-delay="0s">
+                      <div class="progress" data-percentage="80">
+                        <span class="progress-left">
+                          <span class="progress-bar"></span>
+                        </span>
+                        <span class="progress-right">
+                          <span class="progress-bar"></span>
+                        </span>
+                        <div class="progress-value">
+                          <div>
+                            80%<br>
+                            <span>پشتیبانی</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-sm-4">
+                    <div class="skill-item third-skill-item wow fadeIn" data-wow-duration="1s" data-wow-delay="0s">
+                      <div class="progress" data-percentage="80">
+                        <span class="progress-left">
+                          <span class="progress-bar"></span>
+                        </span>
+                        <span class="progress-right">
+                          <span class="progress-bar"></span>
+                        </span>
+                        <div class="progress-value">
+                          <div>
+                            80%<br>
+                            <span>سئو سایت</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div> 
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="about-left-image  wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
+                <img src="{{ URL::asset('assets/images/about-dec.png') }}" alt="">
+              </div>
+            </div>
+          </div>
         </div>
-  
-    </section>
+      </div>
     </div>
-<script src="{{ URL::asset('main.js') }}"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </div>
+
+  <div id="services" class="services section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="section-heading  wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
+            <h6>خدماات ما</h6>
+            <h4>وب سایت هایی که می توانین  <em>اجاره کنید</em></h4>
+            <div class="line-dec"></div>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <div class="naccs">
+            <div class="grid">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="menu">
+                    <div class="first-thumb active">
+                      <div class="thumb">
+                        <span class="icon"><img src="{{ url::asset('images/service-icon-01.png')}}" alt=""></span>
+                        فروشگاه اینترنتی
+                      </div>
+                    </div>
+                    <div>
+                      <div class="thumb">                 
+                        <span class="icon"><img src="{{ url::asset('images/service-icon-02.png')}}" alt=""></span>
+                        سایت تجاری
+                      </div>
+                    </div>
+                    <div>
+                      <div class="thumb">                 
+                        <span class="icon"><img src="{{ url::asset('images/service-icon-03.png')}}" alt=""></span>
+                        سایت شخصی
+                      </div>
+                    </div>
+                    <div>
+                      <div class="thumb">                 
+                        <span class="icon"><img src="{{ url::asset('images/service-icon-04.png')}}" alt=""></span>
+                        سایت مدارس
+                      </div>
+                    </div>
+                    <div class="last-thumb">
+                      <div class="thumb">                 
+                        <span class="icon"><img src="{{ url::asset('images/service-icon-01."png')}}" alt=""></span>
+                        سایت خدماتی
+                      </div>
+                    </div>
+                  </div>
+                </div> 
+                <div class="col-lg-12 rtl justify_text">
+                  <ul class="nacc">
+                    <li class="active">
+                      <div>
+                        <div class="thumb">
+                          <div class="row">
+                            <div class="col-lg-6 align-self-center">
+                              <div class="left-text">
+                                <h4>اجاره وب سایت فروشگاهی</h4>
+                                <p>شما میتوانین با دیدن نمونه واقعی وب سایت و درج اطلاعات خودتون در فرم سفارش در کمتر از چند ساعت سایت فروشگاهی متابق با جدید ترین استاندارد های سایت های فروشگاهی نظیر دیجی کالا و امثال اونو داشته باشید. بازدید کننده اصلا متوجه نمیشه که شمات ول سایت اجاره کردید و هر زمان خواستین میتونین مالکیت اونو با جابجا کردن اطلاعات سایتتون به هاست شخصی داشته باشید</p>
+                                <div class="ticks-list"><span><i class="fa fa-check"></i> درگاه بانک</span> <span><i class="fa fa-check"></i> سبد خرید</span> <span><i class="fa fa-check"></i> حسابداری</span>
+                                  <span><i class="fa fa-check"></i> درج محصول</span> <span><i class="fa fa-check"></i> کد نویسی استاندارد</span> <span><i class="fa fa-check"></i> مقایسه کالا</span></div>
+                                <p>اینها بخشی از قابلیت هاای وب سایت فروشگاهی هست که میتونین با قیمت باور نکردنی ماهیانه ااجاره کنین</p>
+                                <a href="#" class="btn btn-warning">مشاهده قالب های فروشگاهی </a>
+                              </div>
+                            </div>
+                            <div class="col-lg-6 align-self-center">
+                              <div class="right-image">
+                                <img src="{{ url::asset('assets/images/services-image.jpg')}}" alt="">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <div class="thumb">
+                          <div class="row">
+                            <div class="col-lg-6 align-self-center">
+                              <div class="left-text">
+                                <h4>Healthy Food &amp; Life</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedr do eiusmod deis tempor incididunt ut labore et dolore kengan darwin doerski token.
+                                  dover lipsum lorem and the others.</p>
+                                <div class="ticks-list"><span><i class="fa fa-check"></i> Optimized Template</span> <span><i class="fa fa-check"></i> Data Info</span> <span><i class="fa fa-check"></i> SEO Analysis</span>
+                                  <span><i class="fa fa-check"></i> Data Info</span> <span><i class="fa fa-check"></i> SEO Analysis</span> <span><i class="fa fa-check"></i> Optimized Template</span></div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedr do eiusmod deis tempor incididunt.</p>
+                              </div>
+                            </div>
+                            <div class="col-lg-6 align-self-center">
+                              <div class="right-image">
+                                <img src="{{ url::asset('assets/images/services-image-02.jpg')}}" alt="">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <div class="thumb">
+                          <div class="row">
+                            <div class="col-lg-6 align-self-center">
+                              <div class="left-text">
+                                <h4>Car Re-search &amp; Transport</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedr do eiusmod deis tempor incididunt ut labore et dolore kengan darwin doerski token.
+                                  dover lipsum lorem and the others.</p>
+                                <div class="ticks-list"><span><i class="fa fa-check"></i> Optimized Template</span> <span><i class="fa fa-check"></i> Data Info</span> <span><i class="fa fa-check"></i> SEO Analysis</span>
+                                  <span><i class="fa fa-check"></i> Data Info</span> <span><i class="fa fa-check"></i> SEO Analysis</span> <span><i class="fa fa-check"></i> Optimized Template</span></div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedr do eiusmod deis tempor incididunt.</p>
+                              </div>
+                            </div>
+                            <div class="col-lg-6 align-self-center">
+                              <div class="right-image">
+                                <img src="{{ url::asset('assets/images/services-image-03.jpg')}}" alt="">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <div class="thumb">
+                          <div class="row">
+                            <div class="col-lg-6 align-self-center">
+                              <div class="left-text">
+                                <h4>Online Shopping &amp; Tracking ID</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedr do eiusmod deis tempor incididunt ut labore et dolore kengan darwin doerski token.
+                                  dover lipsum lorem and the others.</p>
+                                <div class="ticks-list"><span><i class="fa fa-check"></i> Optimized Template</span> <span><i class="fa fa-check"></i> Data Info</span> <span><i class="fa fa-check"></i> SEO Analysis</span>
+                                  <span><i class="fa fa-check"></i> Data Info</span> <span><i class="fa fa-check"></i> SEO Analysis</span> <span><i class="fa fa-check"></i> Optimized Template</span></div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedr do eiusmod deis tempor incididunt.</p>
+                              </div>
+                            </div>
+                            <div class="col-lg-6 align-self-center">
+                              <div class="right-image">
+                                <img src="{{ url::asset('assets/images/services-image-04.jpg')}}" alt="">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <div class="thumb">
+                          <div class="row">
+                            <div class="col-lg-6 align-self-center">
+                              <div class="left-text">
+                                <h4>Enjoy &amp; Travel</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedr do eiusmod deis tempor incididunt ut labore et dolore kengan darwin doerski token.
+                                  dover lipsum lorem and the others.</p>
+                                <div class="ticks-list"><span><i class="fa fa-check"></i> Optimized Template</span> <span><i class="fa fa-check"></i> Data Info</span> <span><i class="fa fa-check"></i> SEO Analysis</span>
+                                  <span><i class="fa fa-check"></i> Data Info</span> <span><i class="fa fa-check"></i> SEO Analysis</span> <span><i class="fa fa-check"></i> Optimized Template</span></div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedr do eiusmod deis tempor incididunt.</p>
+                              </div>
+                            </div>
+                            <div class="col-lg-6 align-self-center">
+                              <div class="right-image">
+                                <img src="{{ url::asset('assets/images/services-image.jpg')}}" alt="">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>          
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div id="free-quote" class="free-quote">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 offset-lg-4">
+          <div class="section-heading  wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
+            <h6>در خبر نامه ما رایگان عضو شوید</h6>
+            {{-- <h4>جهت عضویت ایمیل خودتون را برای ما ارسال نمایید</h4> --}}
+            <div class="line-dec"></div>
+          </div>
+        </div>
+        <div class="col-lg-8 offset-lg-2  wow fadeIn" data-wow-duration="1s" data-wow-delay="0.8s">
+          <form id="search" action="#" method="GET">
+            <div class="row">
+              
+              <div class="col-lg-8 col-sm-8">
+                <fieldset>
+                  <input type="address" name="address" class="email" placeholder="آدرس ایمیل" autocomplete="on" required>
+                </fieldset>
+              </div>
+              <div class="col-lg-4 col-sm-4">
+                <fieldset>
+                  <button type="submit" class="main-button">عضویت در خبرنامه</button>
+                </fieldset>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="portfolio" class="our-portfolio section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5">
+          <div class="section-heading wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.3s">
+            <h6>مشترکین ما</h6>
+            <h4> وب ساایت های <em>اجاره شده </em> </h4>
+            <div class="line-dec"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid wow fadeIn" data-wow-duration="1s" data-wow-delay="0.7s">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="loop owl-carousel">
+            <div class="item">
+              <a href="#">
+                <div class="portfolio-item">
+                <div class="thumb">
+                  <img src="{{ url::asset('assets/images/portfolio-01.jpg')}}" alt="">
+                </div>
+                <div class="down-content">
+                  <h4>پوشاک ارغوان</h4>
+                  <span>فروشگاه اینترنتی</span>
+                </div>
+              </div>
+              </a>  
+            </div>
+            <div class="item">
+              <a href="#">
+                <div class="portfolio-item">
+                <div class="thumb">
+                  <img src="{{ url::asset('assets/images/portfolio-01.jpg')}}" alt="">
+                </div>
+                <div class="down-content">
+                  <h4>شرکت بیستون</h4>
+                  <span>تعمیرات کامپیوتر</span>
+                </div>
+              </div>
+              </a>  
+            </div>
+            <div class="item">
+              <a href="#">
+                <div class="portfolio-item">
+                <div class="thumb">
+                  <img src="{{ url::asset('assets/images/portfolio-02.jpg')}}" alt="">
+                </div>
+                <div class="down-content">
+                  <h4>فروشگاه آبادیس</h4>
+                  <span>سوپر مارکت</span>
+                </div>
+              </div>
+              </a>  
+            </div>
+            <div class="item">
+              <a href="#">
+                <div class="portfolio-item">
+                <div class="thumb">
+                  <img src="{{ url::asset('assets/images/portfolio-03.jpg')}}" alt="">
+                </div>
+                <div class="down-content">
+                  <h4>محسن آریایی</h4>
+                  <span>مهندس عمران</span>
+                </div>
+              </div>
+              </a>  
+            </div>
+            <div class="item">
+              <a href="#">
+                <div class="portfolio-item">
+                <div class="thumb">
+                  <img src="{{ url::asset('assets/images/portfolio-04.jpg')}}" alt="">
+                </div>
+                <div class="down-content">
+                  <h4>مدرسه عالم</h4>
+                  <span>مدرسه غیر انتفاعی</span>
+                </div>
+              </div>
+              </a>  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="blog" class="blog">
+    <div class="container rtl">
+      <div class="row">
+        <div class="col-lg-4 offset-lg-4  wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.3s">
+          <div class="section-heading">
+            <h6>آخرین اخبار</h6>
+            {{-- <h4> <em>Posts</em></h4> --}}
+            <div class="line-dec"></div>
+          </div>
+        </div>
+        <div class="col-lg-6 show-up wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
+          <div class="blog-post">
+            <div class="thumb">
+              <a href="#"><img src="{{ url::asset('assets/images/blog-post-01.jpg')}}" alt=""></a>
+            </div>
+            <div class="down-content">
+              <span class="category">راه های بیشتر دیده شدن</span>
+              {{-- <span class="date">03 August 2021</span> --}}
+              <a href="#"><h4>با کسب امتیاز بیشتر در وب سایت بیشتر دیده شوید</h4></a>
+              <p> راه های زیاد یبرای کسب امتیاز بیشتر وجود داره که در ااین مقابه بررسی خواهیم کرد</p>
+              <span class="author"><img src="{{ url::asset('assets/images/author-post.jpg')}}" alt=""> نوشته شده : مریم اعتمادی </span>
+              <div class="border-first-button"><a href="#">مشاهده مطلب</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
+          <div class="blog-posts">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="post-item">
+                  <div class="thumb">
+                    <a href="#"><img src="{{ url::asset('assets/images/blog-post-02.jpg')}}" alt=""></a>
+                  </div>
+                  <div class="right-content">
+                    <span class="category">کیفیت تصاویر</span>
+                    {{-- <span class="date">24 September 2021</span> --}}
+                    <a href="#"><h4>ارتبااط کیفیت تصویر در فروش بالا</h4></a>
+                    <p>چطور و با چه نرم افزااری تصویر با کیفیت تر و جداب تری برای سایت خودمون بسازیم</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="post-item">
+                  <div class="thumb">
+                    <a href="#"><img src="{{ url::asset('assets/images/blog-post-03.jpg')}}" alt=""></a>
+                  </div>
+                  <div class="right-content">
+                    <span class="category">افزایش فروش</span>
+                    {{-- <span class="date">24 September 2021</span> --}}
+                    <a href="#"><h4>راه های افزایش فروش در وب سایت</h4></a>
+                    <p>چطور موتونیم با افزایش بازدید سانش افزایش قروش رو در سایت خودمون بالا ببریم</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="post-item last-post-item">
+                  <div class="thumb">
+                    <a href="#"><img src="{{ url::asset('assets/images/blog-post-04.jpg')}}" alt=""></a>
+                  </div>
+                  <div class="right-content">
+                    <span class="category">نحوه اتصال بانک</span>
+                    {{-- <span class="date">24 September 2021</span> --}}
+                    <a href="#"><h4>داشتن درگاه در وب سایت چگونه است</h4></a>
+                    <p>در این پست راهنمای اتصال درگاه بانکی به فروشگاه اینترنتی بررسی خواهد شد</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+
+  <div id="contact" class="contact-us section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+          <div class="section-heading wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
+            <h6>تماس با ما</h6>
+            <h4>با ما از طریق اطلاعات زیر <em> در تماس باشید</em></h4>
+            <div class="line-dec"></div>
+          </div>
+        </div>
+        <div class="col-lg-12 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.25s">
+          <form id="contact" action="" method="post">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="contact-dec">
+                  <img src="{{ url::asset('assets/images/contact-dec.png')}}" alt="">
+                </div>
+              </div>
+              <div class="col-lg-5">
+                <div id="map">
+                  <iframe src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="636px" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+              </div>
+              <div class="col-lg-7 rtl">
+                <div class="fill-form">
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <div class="info-post">
+                        <div class="icon">
+                          <img src="{{ url::asset('assets/images/phone-icon.png')}}" alt="">
+                          <a href="#">010-020-0340</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="info-post">
+                        <div class="icon">
+                          <img src="{{ url::asset('assets/images/email-icon.png')}}" alt="">
+                          <a href="#">our@email.com</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="info-post">
+                        <div class="icon">
+                          <img src="{{ url::asset('assets/images/location-icon.png')}}" alt="">
+                          <a href="#">123 Rio de Janeiro</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <fieldset>
+                        <input type="name" name="name" id="name" placeholder="نام و نام خانوادگی" autocomplete="on" required>
+                      </fieldset>
+                      <fieldset>
+                        <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="ایمیل" required="">
+                      </fieldset>
+                      <fieldset>
+                        <input type="subject" name="subject" id="subject" placeholder="موضوع" autocomplete="on">
+                      </fieldset>
+                    </div>
+                    <div class="col-lg-6">
+                      <fieldset>
+                        <textarea name="message" type="text" class="form-control" id="متن پیام" placeholder="Message" required=""></textarea>  
+                      </fieldset>
+                    </div>
+                    <div class="col-lg-12">
+                      <fieldset>
+                        <button type="submit" id="form-submit" class="main-button ">ارسال</button>
+                      </fieldset>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright © 2022 Asiawebgroup Co., Ltd. All Rights Reserved. 
+          <br>Design: <a href="" target="_parent" title="free css templates">Mahdi Karimi</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Scripts -->
+  <script src="{{ URL::asset('vendor/jquery/jquery.min.js') }}"></script>
+  <script src="{{ URL::asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ URL::asset('assets/js/owl-carousel.js') }}"></script>
+  <script src="{{ URL::asset('assets/js/animation.js') }}"></script>
+  <script src="{{ URL::asset('assets/js/imagesloaded.js') }}"></script>
+  <script src="{{ URL::asset('assets/js/custom.js') }}"></script>
+
 </body>
 </html>
