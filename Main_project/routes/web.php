@@ -19,4 +19,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/template' ,function(){
+    return view('Template');
+})->name('template');
+
+Route::get('/insertdata' ,function(){
+    return view('user.insertdata');
+})->name('insertdata');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

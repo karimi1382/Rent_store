@@ -446,7 +446,7 @@ header
   position: absolute;
   left: 0px;
   right: 0px;
-  z-index: 100;
+  z-index: 999;
   height: 100px;
   -webkit-transition: all .5s ease 0s;
   -moz-transition: all .5s ease 0s;
@@ -1395,7 +1395,7 @@ Services Style
 }
 
 .services .naccs .menu div {
-  color: #2a2a2a;
+  color: #c789b8;
   margin: 0px;
   width: 15%;
   font-size: 20px;
@@ -1411,12 +1411,13 @@ Services Style
 .services .naccs .menu div .thumb {
   display: inline-block;
   width: 100%;
-  padding: 30px 0px;
+  padding: 10px 0px;
+  bottom: 20px;
   background-color: #fff;
 }
 
 .services .naccs .menu div.active {
-  box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 10px #999
 }
 
 .services ul.nacc {
@@ -2216,4 +2217,111 @@ responsive
   form#contact {
     padding: 30px;
   }
+}
+
+.login_page{
+  padding: 220px 0px;
+}
+.btn-primary{
+  background-color: #fff !important;
+  border: 1px solid #e970af !important;
+  color: #e970af !important;
+  border-radius: 30px;
+}
+.btn-primary:hover{
+  background-color: #e970af !important;
+  color: #fff !important;
+
+}
+.btn-link{
+  color: #e970af !important;
+
+}
+.card-header{
+  background-color:#e970af !important;
+  color: #fff;
+}
+
+.pricingTable10{text-align:center;box-shadow: 0px 0px 10px #999;}
+.pricingTable10 .pricingTable-header{padding:30px 0;background:#4d4d4d;position:relative;transition:all .3s ease 0s}
+.pricingTable10:hover .pricingTable-header{background:#e970af}
+.pricingTable10 .pricingTable-header:after,.pricingTable10 .pricingTable-header:before{content:"";width:16px;height:16px;border-radius:50%;border:1px solid #d9d9d8;position:absolute;bottom:12px}
+.pricingTable10 .pricingTable-header:before{left:40px}
+.pricingTable10 .pricingTable-header:after{right:40px}
+.pricingTable10 .heading{font-size:20px;color:#fff;text-transform:uppercase;letter-spacing:2px;margin-top:0}
+.pricingTable10 .price-value
+{
+  display:inline-block;
+  position:relative;
+  font-size:55px;
+  font-weight:700;
+  color:#e970af;
+  transition:all .3s ease 0s
+}
+.pricingTable10:hover .price-value{color:#fff}
+.pricingTable10 .currency
+{
+  font-size:15px;
+  font-weight:700;
+  position:absolute;
+  top:10px;
+  left:-65px
+}
+.pricingTable10 .month
+{
+  font-size:16px;
+  color:#fff;
+  position:absolute;
+  bottom:15px;
+  right:-60px;
+  text-transform:uppercase
+}
+.pricingTable10 .pricing-content{padding-top:50px;background:#fff;position:relative}
+.pricingTable10 .pricing-content:after,.pricingTable10 .pricing-content:before{content:"";width:16px;height:16px;border-radius:50%;border:1px solid #7c7c7c;position:absolute;top:12px}
+.pricingTable10 .pricing-content:before{left:40px}
+.pricingTable10 .pricing-content:after{right:40px}
+.pricingTable10 .pricing-content ul{padding:0 20px;margin:0;list-style:none}
+.pricingTable10 .pricing-content ul:after,.pricingTable10 .pricing-content ul:before{content:"";width:8px;height:46px;border-radius:3px;background:linear-gradient(to bottom,#818282 50%,#727373 50%);position:absolute;top:-22px;z-index:1;box-shadow:0 0 5px #707070;transition:all .3s ease 0s}
+.pricingTable10:hover .pricing-content ul:after,.pricingTable10:hover .pricing-content ul:before{background:linear-gradient(to bottom,#9b82c9 50%,#9b82c9 50%)}
+.pricingTable10 .pricing-content ul:before{left:44px}
+.pricingTable10 .pricing-content ul:after{right:44px}
+.pricingTable10 .pricing-content ul li{font-size:15px;font-weight:700;color:#777473;padding:10px 0;border-bottom:1px solid #d9d9d8}
+.pricingTable10 .pricing-content ul li:last-child{border-bottom:none}
+.pricingTable10 .read{display:inline-block;font-size:16px;color:#fff;text-transform:uppercase;background:#d9d9d8;padding:8px 25px;margin:30px 0;transition:all .3s ease 0s;border-radius: 30px;}
+.pricingTable10 .read:hover{text-decoration:none}
+.pricingTable10:hover .read{background:#e970af}
+
+@media screen and (max-width:990px){.pricingTable10{margin-bottom:25px}
+}
+
+#price .row{
+  z-index: 102;
+  position: relative;
+}
+
+#template_type , #inserdata_type{
+  padding: 110px 0px 0px 0px;
+}
+.link_demo{
+   color: #fff;
+}
+.link_demo:hover{
+  color: blanchedalmond;
+}
+.link_bye{
+  color: #e970af;
+}
+.link_bye:hover{
+  color: #fff;
+}
+.form_insert{
+  border-radius: 20px;
+  border: 1px solid #999;
+  box-shadow: 0px 0px 10px #eee;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #fff;
+}
+.form_insert .row{
+  padding: 20px 0px;
 }

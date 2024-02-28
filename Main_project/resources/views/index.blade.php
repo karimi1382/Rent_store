@@ -1,106 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
 
-  <head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-    <title>DigiMedia - Creative SEO HTML5 Template</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="{{ URL::asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-
-
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="{{ URL::asset('assets/css/fontawesome.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('assets/css/templatemo-digimedia-v1.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('assets/css/animated.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('assets/css/owl.css') }}">
-<!--
-
-TemplateMo 568 DigiMedia
-
-https://templatemo.com/tm-568-digimedia
-
--->
-  </head>
-
-<body>
-
-  <!-- ***** Preloader Start ***** -->
-  <div id="js-preloader" class="js-preloader">
-    <div class="preloader-inner">
-      <span class="dot"></span>
-      <div class="dots">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </div>
-  <!-- ***** Preloader End ***** -->
-
-  <!-- Pre-header Starts -->
-  <div class="pre-header">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-sm-8 col-7">
-          <ul class="info">
-            <li><a href="#"><i class="fa fa-envelope"></i>mydomain@company.com</a></li>
-            <li><a href="#"><i class="fa fa-phone"></i>010-020-0340</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-4 col-sm-4 col-5">
-          <ul class="social-media">
-            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa fa-behance"></i></a></li>
-            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Pre-header End -->
-
-  <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <nav class="main-nav">
-            <!-- ***** Logo Start ***** -->
-            <a href="index.html" class="logo">
-              <img src="{{ URL::asset('assets/images/logo-v1.png') }}" alt="">
-            </a>
-            <!-- ***** Logo End ***** -->
-            <!-- ***** Menu Start ***** -->
-            <ul class="nav rtl">
-              <li class="scroll-to-section"><a href="#top" class="active">صفحه نخست</a></li>
-              <li class="scroll-to-section"><a href="#about">درباره ما</a></li>
-              <li class="scroll-to-section"><a href="#services">خدمات</a></li>
-              <li class="scroll-to-section"><a href="#portfolio">مشترکین </a></li>
-              <li class="scroll-to-section"><a href="#blog">بلاگ</a></li>
-              <li class="scroll-to-section"><a href="#contact">تماس با ما</a></li> 
-              <li class="scroll-to-section"><div class="border-first-button"><a href="#contact">ثبت نام | ورود</a></div></li> 
-            </ul>        
-            <a class='menu-trigger'>
-                <span>منو سایت</span>
-            </a>
-            <!-- ***** Menu End ***** -->
-          </nav>
-        </div>
-      </div>
-    </div>
-  </header>
-  <!-- ***** Header Area End ***** -->
-
+@extends('layouts.content-home')
+@section('content')
   <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
     <div class="container">
       <div class="row">
@@ -221,7 +121,7 @@ https://templatemo.com/tm-568-digimedia
       <div class="row">
         <div class="col-lg-12">
           <div class="section-heading  wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
-            <h6>خدماات ما</h6>
+            <h6>خدمات ما</h6>
             <h4>وب سایت هایی که می توانین  <em>اجاره کنید</em></h4>
             <div class="line-dec"></div>
           </div>
@@ -274,10 +174,16 @@ https://templatemo.com/tm-568-digimedia
                               <div class="left-text">
                                 <h4>اجاره وب سایت فروشگاهی</h4>
                                 <p>شما میتوانین با دیدن نمونه واقعی وب سایت و درج اطلاعات خودتون در فرم سفارش در کمتر از چند ساعت سایت فروشگاهی متابق با جدید ترین استاندارد های سایت های فروشگاهی نظیر دیجی کالا و امثال اونو داشته باشید. بازدید کننده اصلا متوجه نمیشه که شمات ول سایت اجاره کردید و هر زمان خواستین میتونین مالکیت اونو با جابجا کردن اطلاعات سایتتون به هاست شخصی داشته باشید</p>
-                                <div class="ticks-list"><span><i class="fa fa-check"></i> درگاه بانک</span> <span><i class="fa fa-check"></i> سبد خرید</span> <span><i class="fa fa-check"></i> حسابداری</span>
-                                  <span><i class="fa fa-check"></i> درج محصول</span> <span><i class="fa fa-check"></i> کد نویسی استاندارد</span> <span><i class="fa fa-check"></i> مقایسه کالا</span></div>
+                                <div class="ticks-list">
+                                  <span><i class="fa fa-check"></i> درگاه بانک</span> 
+                                  <span><i class="fa fa-check"></i> سبد خرید</span> 
+                                  <span><i class="fa fa-check"></i> حسابداری</span>
+                                  <span><i class="fa fa-check"></i> درج محصول</span> 
+                                  <span><i class="fa fa-check"></i> کد نویسی استاندارد</span> 
+                                  <span><i class="fa fa-check"></i> مقایسه کالا</span>
+                                </div>
                                 <p>اینها بخشی از قابلیت هاای وب سایت فروشگاهی هست که میتونین با قیمت باور نکردنی ماهیانه ااجاره کنین</p>
-                                <a href="#" class="btn btn-warning">مشاهده قالب های فروشگاهی </a>
+                                <a href="{{ route('template') }}" class="btn btn-primary">مشاهده قالب های فروشگاهی </a>
                               </div>
                             </div>
                             <div class="col-lg-6 align-self-center">
@@ -391,6 +297,93 @@ https://templatemo.com/tm-568-digimedia
     </div>
   </div>
 
+  <div id="price" class="services section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="section-heading  wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
+            <h6>پکیج های ما</h6>
+            <h4>متناسب با کسب کارتون میتونین پکیج مورد نظر رو <em>انتخاب کنید</em></h4>
+            <div class="line-dec"></div>
+          </div>
+          <div class="row">
+          <div class="col-md-4 col-sm-6  wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.7s">
+            <div class="pricingTable10">
+                <div class="pricingTable-header">
+                    <h3 class="heading rtl">۱۲ ماهه</h3>
+                    <span class="price-value rtl">
+                      <span class="currency">هزار تومن</span> ۷۵۰ 
+                      <span class="month">ماهانه /</span>
+                    </span>
+                </div>
+                <div class="pricing-content rtl">
+                    <ul>
+                      <li>حجم سایت نا محدود</li>
+                      <li>اطلاعات اختصاصی</li>
+                      <li>آدرس سایت اختصاصی</li>
+                      <li>پنل پشتیبانی ۲۴ ساعته</li>
+                      <li>راه اندازی ۶ ساعته</li>
+                      <li>طراحی ۳ بنر اختصاصی</li>
+                      <li>پنل آمار بازدید کننده</li>
+                      <li>۲ ویدئو تبلیغاتی  یک دقیقه ای</li>
+                      <li>تبلیغ بنری یک هفته ای در سایت اصلی</li>
+                    </ul>
+                    <a href="#services" class="read">همین الان قالب سایتتو انتخاب کن</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6  wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.8s">
+            <div class="pricingTable10">
+                <div class="pricingTable-header">
+                    <h3 class="heading rtl">۶ ماهه ( پیشنهادی )</h3>
+                    <span class="price-value rtl">
+                        <span class="currency">هزار تومان</span> ۸۵۰ 
+                        <span class="month">ماهانه /</span>
+                      </span>
+                </div>
+                <div class="pricing-content rtl">
+                    <ul>
+                      <li>حجم سایت نا محدود</li>
+                      <li>اطلاعات اختصاصی</li>
+                      <li>آدرس سایت اختصاصی</li>
+                      <li>پنل پشتیبانی ۲۴ ساعته</li>
+                      <li>راه اندازی ۶ ساعته</li>
+                      <li>طراحی ۳ بنر اختصاصی</li>
+                      <li>پنل آمار بازدید کننده</li>
+                    </ul>
+                    <a href="#services" class="read">همین الان قالب سایتتو انتخاب کن</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6  wow fadeInRight" data-wow-duration="1s" data-wow-delay="1s">
+            <div class="pricingTable10">
+                <div class="pricingTable-header">
+                    <h3 class="heading rtl">۳ ماهه</h3>
+                    <span class="price-value rtl">
+                        <span class="currency">هزار تومن</span> ۹۵۰ 
+                        <span class="month">ماهانه /</span>
+                      </span>
+                </div>
+                <div class="pricing-content rtl">
+                    <ul>
+                        <li>حجم سایت نا محدود</li>
+                        <li>اطلاعات اختصاصی</li>
+                        <li>آدرس سایت اختصاصی</li>
+                        <li>پنل پشتیبانی ۲۴ ساعته</li>
+                        <li>راه اندازی ۶ ساعته</li>
+                    </ul>
+                    <a href="#services" class="read">همین الان قالب سایتتو انتخاب کن</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 text-center pt-5 rtl">
+          <h6>در صورتی که به ادمین سایت نیاز دارید در مرحله سفارش آن را مشخص کنین تا برای شما یک ادمین در نظر بگیریم تا کار های روزمره سایت شمارا زیر نظر ما انجام دهد.</h6>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
   
   <div id="free-quote" class="free-quote">
     <div class="container">
@@ -584,7 +577,6 @@ https://templatemo.com/tm-568-digimedia
       </div>
     </div>
   </div>  
-
   <div id="contact" class="contact-us section">
     <div class="container">
       <div class="row">
@@ -603,12 +595,12 @@ https://templatemo.com/tm-568-digimedia
                   <img src="{{ url::asset('assets/images/contact-dec.png')}}" alt="">
                 </div>
               </div>
-              <div class="col-lg-5">
+              {{-- <div class="col-lg-5">
                 <div id="map">
                   <iframe src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="636px" frameborder="0" style="border:0" allowfullscreen></iframe>
                 </div>
-              </div>
-              <div class="col-lg-7 rtl">
+              </div> --}}
+              <div class="col-lg-12 rtl">
                 <div class="fill-form">
                   <div class="row">
                     <div class="col-lg-4">
@@ -665,26 +657,4 @@ https://templatemo.com/tm-568-digimedia
       </div>
     </div>
   </div>
-
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <p>Copyright © 2022 Asiawebgroup Co., Ltd. All Rights Reserved. 
-          <br>Design: <a href="" target="_parent" title="free css templates">Mahdi Karimi</a></p>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-
-  <!-- Scripts -->
-  <script src="{{ URL::asset('vendor/jquery/jquery.min.js') }}"></script>
-  <script src="{{ URL::asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ URL::asset('assets/js/owl-carousel.js') }}"></script>
-  <script src="{{ URL::asset('assets/js/animation.js') }}"></script>
-  <script src="{{ URL::asset('assets/js/imagesloaded.js') }}"></script>
-  <script src="{{ URL::asset('assets/js/custom.js') }}"></script>
-
-</body>
-</html>
+  @endsection
