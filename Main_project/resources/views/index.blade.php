@@ -15,6 +15,10 @@
               <div class="left-content show-up header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
                 <div class="row">
                   <div class="col-lg-12 rtl">
+                    @guest
+                    @else
+                    <h3 class="pb-4">{{auth()->user()->name}} عزیز خوش آمدی</h3>
+                    @endguest
                     <h6>آژانس اجاره وب سایت</h6>
                     <h2>به راحتی وب سایتت رو اجاره کن</h2>
                     <p> به جای هزینه زیاد ساخت وب سایت به راحتی با چند کلیک و با قیمت باور نکردنی وب سایتتو اجاره کن</p>

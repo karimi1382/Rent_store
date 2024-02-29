@@ -200,6 +200,12 @@ iframe {
 
 /*------------------------------------------------------------------
 [  ]*/
+.error_text{
+  color:#e970af;
+  font-size: 15px;
+  direction: rtl;
+  text-align: center;
+}
 .login100-pic {
   width: 316px;
 }

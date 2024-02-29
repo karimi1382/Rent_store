@@ -88,8 +88,9 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-12">
                             <input type="submit" value="ثبت اطلاعات" class="btn btn-primary" />
+                            <a href="{{route('template')}}" class="btn btn-primary">بازگشت به صفحه انتخاب تمپلت</a>
                         </div>
                     </div>
                 </form>

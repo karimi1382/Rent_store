@@ -95,8 +95,15 @@ https://templatemo.com/tm-568-digimedia
                   <li class="scroll-to-section"><div class="border-first-button"><a href="{{ route('login') }}">ثبت نام | ورود</a></div></li> 
                 @endif
               @else
-              <li class="scroll-to-section"><div class="border-first-button"><a href="              {{ route('logout') }}
-                ">خروج از کارتابل</a></div></li> 
+              <li class="scroll-to-section">
+                <div class="border-first-button">
+                  <a href="{{ route('userpanel') }}">پنل کاربری</a>
+
+                  <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">خروج از کارتابل</a>
+                  <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">{{ csrf_field() }} </form>
+
+                </div>
+              </li> 
                 @endguest
 
             </ul>        

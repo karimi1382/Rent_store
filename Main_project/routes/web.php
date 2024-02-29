@@ -23,8 +23,14 @@ Route::get('/template' ,function(){
     return view('Template');
 })->name('template');
 
+Route::get('/userpanel' ,function(){
+    return view('user.userpanel');
+})->name('userpanel');
+
 Route::get('/insertdata' ,function(){
     return view('user.insertdata');
-})->name('insertdata');
+})->name('insertdata')->middleware('auth');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

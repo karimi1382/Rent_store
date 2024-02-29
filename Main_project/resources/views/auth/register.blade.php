@@ -11,13 +11,20 @@
                 <img src="{{ URL::asset('login_css/images/img-02.jpg') }}" alt="IMG">
             </div>
 
-            <form class="login100-form validate-form" action="{{ route('register') }}">
+            <form method="POST" class="login100-form validate-form" action="{{ route('register') }}">
+                @csrf
+
                 <span class="login100-form-title">
                     ساخت حساب کاربری
                 </span>
 
                 <div class="wrap-input100 validate-input" data-validate = "Valid name is required: ex@abc.xyz">
-                    <input class="input100" type="text" name="name" placeholder="نام و نام خانوادگی">
+                    <input id="name" type="text" class="input100 @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name"  placeholder="نام و نام خانوادگی">
+
+                                @error('name')
+                                <p class="error_text">نام انتخابی مناسب نمی باشد</p>
+                            </span>
+                                @enderror
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <i class="fa fa-user" aria-hidden="true"></i>
@@ -25,7 +32,11 @@
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-                    <input class="input100" type="text" name="email" placeholder="ایمیل">
+                    <input id="email" type="email" class="input100 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="ایمیل">
+                    @error('email')
+                                   
+                    <p class="error_text">این نام کاربری در سیستم وجود دارد</p>
+                    @enderror
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -33,7 +44,12 @@
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate = "Password is required">
-                    <input class="input100" type="password" name="pass" placeholder="کلمه عبور">
+                    <input id="password" type="password" class="input100 @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="کلمه عبور">
+
+                    @error('password')
+                    
+                        <p class="error_text">پسورد باید بیش از ۸ کاراکتر باشد</p>
+                @enderror
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <i class="fa fa-lock" aria-hidden="true"></i>
