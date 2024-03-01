@@ -1,10 +1,7 @@
 @extends('layouts.content-home')
 @section('content')
-<style>
-    body{  background: linear-gradient(-135deg, #feeaf9, #fff);
-}
-</style>
-<section id="inserdata_type">
+
+<section id="inserdata_type" class="main-banner">
     <div class="container">
    
         <div class="row">
@@ -16,19 +13,19 @@
         </div>
         <div class="row justify-content-center  wow fadeInUp rtl" data-wow-duration="1.5s" data-wow-delay="0.5s">
             <div class="col-6 rtl form_insert">
-                <form action="#" method="post">
+                <form action="{{url('#')}}" method="post">
+                    @csrf
                     <div class="row">
                         <div class="col-md-6">
                             <label for="template_name" class="form-label">قالب انتخابی شما</label>
-                            <input type="text" value="قالب ارغوان کد ۲۳۳" disabled id="template_name" class="form-control"/>
+                            <input type="text" value="نام قالب : {{$template->title}} با کد شناسه  {{$template->id}}" disabled id="template_name" class="form-control"/>
                         </div>
                         <div class="col-md-6">
                             <label for="plan_name" class="form-label">پلن مورد نظر را انتخاب کنید</label>
                             <select id="plan_name" class="form-select">
-                                <option value="0">یک پلن را انتخاب کنید</option>
-                                <option value="1">پلن ۳ ماهه - ماهانه ۹۵۰ هزار تومان</option>
-                                <option value="2">پلن ۶ ماهه - ماهانه ۸۵۰ هزار تومان</option>
-                                <option value="3">پلن ۱۲ ماهه - ماهانه ۷۵۰ هزار تومان</option>
+                                @foreach ($packeges as $packege )
+                                <option value="{{$packege->id}}">{{$packege->name}} - {{$packege->detile}}</option>                      
+                                @endforeach       
                             </select>
                         </div>
                     </div>
@@ -57,13 +54,9 @@
                             <label for="plan_name" class="form-label">زمینه کاری شما</label>
                             <select id="plan_name" class="form-select">
                                 <option value="0">یک زمینه کاری را انتخاب کنید</option>
-                                <option value="1">فروشگاه سوپر مارکت</option>
-                                <option value="2">فروشگاه پوشاک</option>
-                                <option value="3">فروشگاه کفش و کیف</option>
-                                <option value="4">فروشگاه ساعات و زیورات</option>
-                                <option value="3">فروشگاه موبایل و لبتاپ و لوازم دیجیتال</option>
-                                <option value="3">فروشگاه لوازم خانگی</option>
-                                <option value="3">سایر</option>
+                                @foreach ($filds as $fild )
+                                <option value="{{$fild->id}}">{{$fild->name}}</option>
+                                @endforeach  
                             </select>
                         </div>
                     </div>
@@ -82,15 +75,19 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <label for="template_name" class="form-label">آدرس پیشنهادی سایت خود را به انگلیسی وارد نمایید - در صورت پر بودن نام انتخابی بعد از بررسی به شما اعلام خواهد شد</label>
                             <input type="text" placeholder="mihansazan"  id="template_name" class="form-control text-start"/>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="template_logo" class="form-label">در صورتی که لوگویی برای کسب و کار خود دارد آن را بصورت بدون پس زمینه برای سایت مورد نظر انتخاب نمایید</label>
+                            <input type="file" placeholder="mihansazan"  id="template_logo" class="form-control text-start"/>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             <input type="submit" value="ثبت اطلاعات" class="btn btn-primary" />
-                            <a href="{{route('template')}}" class="btn btn-primary">بازگشت به صفحه انتخاب تمپلت</a>
+                            <a href="{{url('template/'.$template->project_type_id)}}" class="btn btn-primary">بازگشت به صفحه انتخاب تمپلت</a>
                         </div>
                     </div>
                 </form>

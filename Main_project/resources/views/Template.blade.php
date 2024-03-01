@@ -13,103 +13,29 @@
     <div class="row rtl pt-4  wow fadeIn rtl" data-wow-duration="1s" data-wow-delay="0.9s">
         <div class="blog-posts">
             <div class="row">
-
-              <div class="col-lg-6">
-                <div class="post-item">
-                  <div class="thumb">
-                    <a href="#"><img src="{{ asset('assets/images/blog-post-02.jpg')}}" alt=""></a>
+              @forelse ( $projects as $Project )
+                  @foreach ($Project->projects as $template )
+                  <div class="col-lg-6">
+                    <div class="post-item">
+                      <div class="thumb">
+                      <img src="{{ asset('assets/images/blog-post-02.jpg')}}" alt="">
+                      </div>
+                      <div class="right-content">
+                        <span class="category"><a class="link_demo" target="_blank" href="{{$template->url}}" >مشاهده دمو قالب</a></span>
+                        <span class="btn btn-primary"><a class="link_bye" href="{{url('insertdata/'.$template->id)}}" >انتخاب قالب</a></span>
+    
+                        {{-- <span class="date">24 September 2021</span> --}}
+                        <a href="#"><h4>{{$template->title}}</h4></a>
+                        <p>{{$template->description}}</p>
+                      </div>
+                    </div>
                   </div>
-                  <div class="right-content">
-                    <span class="category"><a class="link_demo" href="" >مشاهده دمو قالب</a></span>
-                    <span class="btn btn-primary"><a class="link_bye" href="{{route('insertdata')}}" >انتخاب قالب</a></span>
-
-                    {{-- <span class="date">24 September 2021</span> --}}
-                    <a href="#"><h4>قالب دریا  کد ۳۲۳</h4></a>
-                    <p>قبل از انتخال قالب لطفا دمو آن را مشاهده کنید. دمو بر روی فروشگاه موبایل طراحی شده است ولی با توجه به قابلیت های قوی این قالب قابل استفاده برای تمامی فروشگاه ها با زمینه های متفاوت میباشد.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-6">
-                <div class="post-item">
-                  <div class="thumb">
-                    <a href="#"><img src="{{ asset('assets/images/blog-post-03.jpg')}}" alt=""></a>
-                  </div>
-                  <div class="right-content">
-                    <span class="category"><a class="link_demo" href="" >مشاهده دمو قالب</a></span>
-                    <span class="btn btn-primary"><a class="link_bye" href="{{route('insertdata')}}" >انتخاب قالب</a></span>
-
-                    {{-- <span class="date">24 September 2021</span> --}}
-                    <a href="#"><h4>قالب دریا  کد ۳۲۳</h4></a>
-                    <p>قبل از انتخال قالب لطفا دمو آن را مشاهده کنید. دمو بر روی فروشگاه موبایل طراحی شده است ولی با توجه به قابلیت های قوی این قالب قابل استفاده برای تمامی فروشگاه ها با زمینه های متفاوت میباشد.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-6">
-                <div class="post-item">
-                  <div class="thumb">
-                    <a href="#"><img src="{{ asset('assets/images/blog-post-04.jpg')}}" alt=""></a>
-                  </div>
-                  <div class="right-content">
-                    <span class="category"><a class="link_demo" href="" >مشاهده دمو قالب</a></span>
-                    <span class="btn btn-primary"><a class="link_bye" href="{{route('insertdata')}}" >انتخاب قالب</a></span>
-
-                    {{-- <span class="date">24 September 2021</span> --}}
-                    <a href="#"><h4>قالب دریا  کد ۳۲۳</h4></a>
-                    <p>قبل از انتخال قالب لطفا دمو آن را مشاهده کنید. دمو بر روی فروشگاه موبایل طراحی شده است ولی با توجه به قابلیت های قوی این قالب قابل استفاده برای تمامی فروشگاه ها با زمینه های متفاوت میباشد.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-6">
-                <div class="post-item">
-                  <div class="thumb">
-                    <a href="#"><img src="{{ asset('assets/images/blog-post-02.jpg')}}" alt=""></a>
-                  </div>
-                  <div class="right-content">
-                    <span class="category"><a class="link_demo" href="" >مشاهده دمو قالب</a></span>
-                    <span class="btn btn-primary"><a class="link_bye" href="{{route('insertdata')}}" >انتخاب قالب</a></span>
-
-                    {{-- <span class="date">24 September 2021</span> --}}
-                    <a href="#"><h4>قالب دریا  کد ۳۲۳</h4></a>
-                    <p>قبل از انتخال قالب لطفا دمو آن را مشاهده کنید. دمو بر روی فروشگاه موبایل طراحی شده است ولی با توجه به قابلیت های قوی این قالب قابل استفاده برای تمامی فروشگاه ها با زمینه های متفاوت میباشد.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-6">
-                <div class="post-item">
-                  <div class="thumb">
-                    <a href="#"><img src="{{ asset('assets/images/blog-post-03.jpg')}}" alt=""></a>
-                  </div>
-                  <div class="right-content">
-                    <span class="category"><a class="link_demo" href="" >مشاهده دمو قالب</a></span>
-                    <span class="btn btn-primary"><a class="link_bye" href="{{route('insertdata')}}" >انتخاب قالب</a></span>
-
-                    {{-- <span class="date">24 September 2021</span> --}}
-                    <a href="#"><h4>قالب دریا  کد ۳۲۳</h4></a>
-                    <p>قبل از انتخال قالب لطفا دمو آن را مشاهده کنید. دمو بر روی فروشگاه موبایل طراحی شده است ولی با توجه به قابلیت های قوی این قالب قابل استفاده برای تمامی فروشگاه ها با زمینه های متفاوت میباشد.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-6">
-                <div class="post-item">
-                  <div class="thumb">
-                    <a href="#"><img src="{{ asset('assets/images/blog-post-04.jpg')}}" alt=""></a>
-                  </div>
-                  <div class="right-content">
-                    <span class="category"><a class="link_demo" href="" >مشاهده دمو قالب</a></span>
-                    <span class="btn btn-primary"><a class="link_bye" href="{{route('insertdata')}}" >انتخاب قالب</a></span>
-
-                    {{-- <span class="date">24 September 2021</span> --}}
-                    <a href="#"><h4>قالب دریا  کد ۳۲۳</h4></a>
-                    <p>قبل از انتخال قالب لطفا دمو آن را مشاهده کنید. دمو بر روی فروشگاه موبایل طراحی شده است ولی با توجه به قابلیت های قوی این قالب قابل استفاده برای تمامی فروشگاه ها با زمینه های متفاوت میباشد.</p>
-                  </div>
-                </div>
-              </div>
+                  @endforeach
+              @empty
+                <p class="text-center">قالبی برای این دسته در نظر گرفته نشسده است</p>
+              @endforelse
               
+
             </div>
           </div>
     </div>

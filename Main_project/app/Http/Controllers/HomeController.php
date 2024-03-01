@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\project;
+use App\Models\packege;
+use App\Models\fild;
+
 
 class HomeController extends Controller
 {
@@ -21,8 +25,14 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function check_data($id)
     {
-        return view('home');
+        $template=project::where('id',$id)->first();
+        $packeges=packege::all();
+        $filds=fild::all();
+        return view('user.insertdata',compact('template','packeges','filds'));
+    }
+    public function cart_show(){
+        return view('user.cart');
     }
 }

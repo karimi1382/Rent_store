@@ -187,7 +187,8 @@
                                   <span><i class="fa fa-check"></i> مقایسه کالا</span>
                                 </div>
                                 <p>اینها بخشی از قابلیت هاای وب سایت فروشگاهی هست که میتونین با قیمت باور نکردنی ماهیانه ااجاره کنین</p>
-                                <a href="{{ route('template') }}" class="btn btn-primary">مشاهده قالب های فروشگاهی </a>
+                                
+                                <a href="{{ url('template/'.'1') }}" class="btn btn-primary">مشاهده قالب های فروشگاهی </a>
                               </div>
                             </div>
                             <div class="col-lg-6 align-self-center">
@@ -211,6 +212,8 @@
                                 <div class="ticks-list"><span><i class="fa fa-check"></i> Optimized Template</span> <span><i class="fa fa-check"></i> Data Info</span> <span><i class="fa fa-check"></i> SEO Analysis</span>
                                   <span><i class="fa fa-check"></i> Data Info</span> <span><i class="fa fa-check"></i> SEO Analysis</span> <span><i class="fa fa-check"></i> Optimized Template</span></div>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedr do eiusmod deis tempor incididunt.</p>
+                                <a href="{{ url('template/'.'2') }}" class="btn btn-primary">مشاهده قالب های تجاری </a>
+
                               </div>
                             </div>
                             <div class="col-lg-6 align-self-center">

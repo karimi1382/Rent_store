@@ -29,13 +29,21 @@
               <div class="left-content show-up header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
                 <div class="row">
                   <div class="col-lg-12 rtl">
-                    <h3 class="pb-4">{{auth()->user()->name}} عزیز خوش آمدی</h3>
+                    <h3 class="pb-4">{{auth()->user()->name}} عزیز  </h3>
 
-                    <h6>آژانس اجاره وب سایت</h6>
-                    <h2>به راحتی وب سایتت رو اجاره کن</h2>
-                    <p> به جای هزینه زیاد ساخت وب سایت به راحتی با چند کلیک و با قیمت باور نکردنی وب سایتتو اجاره کن</p>
+                    <h6>به آژانس اجاره وب سایت خوش آمدی</h6>
+                    <h3>اگر سوالی بود میتونی تیکت بذاری</h3>
+                    <h5 class="pt-4">دوستانت در کوتاه ترین زمان بهت پاسخ میدهند</h5>
+
+                    {{-- <p class="p-0"> از منوی سمت راست صفحه مورد نظرت رو انتخاب کن</p> --}}
                   </div>
-                 
+                  <div class="col-lg-12 rtl">
+                    <div class="border-first-button scroll-to-section pt-4 ">
+                            <a href="#contact">مدیریت تیکت ها </a>
+                        <span class="btn_banafsh">                            <a href="{{ url('/#services') }}" >اجاره وبسایت </a>
+                        </span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

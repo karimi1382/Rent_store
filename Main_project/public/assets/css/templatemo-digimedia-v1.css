@@ -1807,7 +1807,9 @@ Blog
 .blog-posts {
   margin-left: 30px;
 }
-
+.post-item{
+  padding-top: 20px!important;
+}
 .post-item {
   margin-bottom: 62px;
 }
@@ -2228,6 +2230,27 @@ responsive
   color: #e970af !important;
   border-radius: 30px;
 }
+.btn_banafsh a{
+  background-color: #726ae3 !important;
+  border: 1px solid #726ae3 !important;
+  color: #fff !important;
+  border-radius: 30px;
+ 
+}
+.btn_banafsh{
+  background-color: #726ae3 !important;
+  border: 1px solid #726ae3 !important;
+  color: #fff !important;
+  border-radius: 30px;
+}
+.btn_banafsh:hover{
+  background-color: #fff !important;
+  color: #726ae3 !important;
+}
+.btn_banafsh:hover a{
+  background-color: #fff !important;
+  color: #726ae3 !important;
+}
 .btn-primary:hover{
   background-color: #e970af !important;
   color: #fff !important;
@@ -2324,4 +2347,7 @@ responsive
 }
 .form_insert .row{
   padding: 20px 0px;
+}
+.rtl_justify{
+  text-align: justify;
 }

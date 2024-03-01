@@ -159,7 +159,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="index.html">
+        <a class="nav-link " href="{{url('userpanel')}}">
           <i class="bi bi-grid"></i>
           <span>پنل کاربری</span>
         </a>
@@ -217,7 +217,7 @@
           </li>
           <li>
             <a href="charts-echarts.html">
-              <i class="bi bi-circle"></i><span>سابقه تیکت ها</span>
+              <i class="bi bi-circle"></i><span>مدیریت تیکت ها</span>
             </a>
           </li>
         </ul>
@@ -228,16 +228,16 @@
       {{-- <li class="nav-heading">Pages</li> --}}
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.html">
+        <a class="nav-link collapsed" href="{{url('cartshow')}}">
           <i class="bi bi-cart4"></i>
           <span>سبد خرید</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ url('/') }}">
+      <li class="nav-item ">
+        <a class="nav-link collapsed" href="{{ url('/#services') }}">
           <i class="bi bi-emoji-sunglasses"></i>
-          <span>مشاهده سایت اصلی</span>
+          <span>اجاره وب سایت</span>
         </a>
       </li><!-- End F.A.Q Page Nav -->
 
