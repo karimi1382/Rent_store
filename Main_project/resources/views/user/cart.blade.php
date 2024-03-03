@@ -1,7 +1,17 @@
 @extends('layouts.Dashbord_head')
 
 @section('content')
+@if(session()->has('success'))
+  <div class=" alert alert-success">سفارش شما با موفقیت ثبت شد</div>
+@endif
+@if(session()->has('alarm'))
+<div class=" alert alert-success">سفارش شما با موفقیت حذف شد</div>
 
+@endif
+@if(session()->has('peyment'))
+<div class=" alert alert-warning">اطلاعات پرداخت شما با موفقیت ثبت شد. منتظر بررسی آن باشید</div>
+
+@endif
 <div class="pagetitle p-3">
     <h1>پنل کاربری</h1>
     <nav>
@@ -20,83 +30,129 @@
               <tr>
                 <th>ردیف</th>
                 <th>نوع سایت</th>
-                <th>نام قالب</th>
-                <th>نام کسب و کار</th>
-                <th>تاریخ اعتبار</th>
-                <th>وضعیت</th>
-                <th>مبلغ</th>
-                <th>روش پرداخت</th>
-                <th>شماره پیگیری</th>
-                <th>پرداخت</th>
-                <th>انصراف</th>
-                <th>جزئیات</th>
+                <th style="width: 90px !important">نام قالب</th>
+                <th style="width: 200px !important">پکیج انتخابی</th>
+                <th style="width: 130px !important">وضعیت</th>
+                <th>ادمین</th>
+                <th style="width: 20px !important">مبلغ</th>
+                <th style="width: 130px !important">روش پرداخت</th>
+                <th style="width: 250px !important">شماره پیگیری</th>
+                <th style="width: 20px !important">پرداخت</th>
+                <th style="width: 20px !important">انصراف</th>
               </tr>
             </thead>
             <tbody>
+              <?php $n=1 ?>
+              @foreach ( $orders as $order )
+                @if($order->order_end_time != '-1')
+
                 <tr>
-              <td class="pt-3">۱</td>
-              <td class="pt-3">فروشگاه</td>
-              <td class="pt-3">ارغوان</td>
-              <td class="pt-3">فروشگاه محمدی</td>
-              <td class="pt-3">هنوز فعال نشده است</td>
-              <td class="pt-3">انتظار پرداخت</td>
-              <td class="pt-3">۲۵۵۰۰۰۰</td>
-              <td>
-                <select class="form-control">
-                    <option value="">کارت به کارت</option>
-                    <option value="">واریز کریپتو</option>
-                </select>
+                  <input type="hidden" value="{{$order->id}}" name="id">
+              <td class="pt-3">{{$n++}}</td>
+              <td class="pt-3">{{$order->project_type_name}}</td>
+              <td class="pt-3">{{$order->project_title}}</td>
+              <td class="pt-3">{{$order->packege_name}}</td>
+              
+              <td class="pt-3">
+                @if($order->order_end_time != '+1')
+                در انتظار پرداخت
+                @else
+                در حال بررسی 
+                @endif
               </td>
-              <td><input type="text" class="form-control text-center" placeholder="شماره پیگیری واریز را وارد نمایید" name="peyment_detile" /></td>
-              <td><a href="#" class="btn btn_banafsh">پرداخت</a></td>
-              <td><a href="#" class="btn btn-primary">انصراف</a></td>
-              <td class="pt-3"><a href="#" ><i class="bi bi-pencil-square"></i></a></td>
+              <td class="pt-3">
+                <input type="checkbox" 
+                @if(isset($order->order_admin))
+                checked
+                @endif
+                 disabled></td>
+              <td class="pt-3">
+                @if(isset($order->order_admin))
+                @if($order->packege_id==1)
+                    <?php $order->packege_price += 250000*3 ?>
+                @elseif($order->packege_id==2)
+                    <?php $order->packege_price += 250000*6 ?>
+                @elseif($order->packege_id==3)
+                <?php $order->packege_price += 250000*12 ?>
+                @endif
+                @endif
+                {{$order->packege_price}}
+              </td>
+
+              <form id="delete_order_{{$order->id}}" action="{{ route('order.update',['order'=>$order->order_id])}}" method="POST">
+                @csrf   
+                @method('PUT')
+
+              <td>
+                @if($order->order_end_time == '+1')
+                  @if($order->peyment_type==1)
+                    <input class="form-control" type="text" disabled value="کارت به کارت" >
+                  @else
+                  <input class="form-control" type="text" disabled value="واریز کریپتو" >
+                  @endif
+                @else
+                <select name="peyment_method" class="form-control">
+                    <option value="1">کارت به کارت</option>
+                    <option value="2">واریز کریپتو</option>
+                </select>
+                @endif
+              </td>
+
+
+              
+              <td>  
+                @if($order->order_end_time == '+1')
+                <input type="text" value="{{$order->payment_code}}" disabled class="form-control text-center" placeholder="شماره پیگیری واریز را وارد نمایید" name="peyment_detile" required/></td>
+                 
+                @else
+    
+                <input type="text" class="form-control text-center" placeholder="شماره پیگیری واریز را وارد نمایید" name="peyment_detile" required/></td>
+                @endif
+                <td>
+                  @if($order->order_end_time == '+1')
+                  <input type="submit" class="btn btn_banafsh" value="پرداخت" disabled />
+
+                  @else
+                <input type="submit" class="btn btn_banafsh" value="پرداخت" />
+                <input type="hidden" name="user_id" value="{{auth()->user()->id}}" />
+                <input type="hidden" name="order_id" value="{{$order->order_id}}" />
+                  @endif
+
+              </td>
+            </form>
+
+
+              <td>
+                
+                <form id="delete_order_{{$order->id}}" action="{{ route('order.destroy',['order'=>$order->order_id])}}" method="POST">
+                  @csrf   
+                  @method('DELETE')
+                  <input type="hidden" value="{{$order->order_id}}" name="id">
+                  @if($order->order_end_time == '+1')
+                  <input type="submit" class="btn btn-primary" value="انصراف" disabled/>
+
+                  @else
+                  <input type="submit" class="btn btn-primary" value="انصراف" />
+                  @endif
+                </form>
+
+                {{-- <a href="#" id="Delete_{{$order->id}}" class="btn btn-primary">انصراف</a> --}}
+              
+              
+              
+              </td>
 
             </tr>
-            <tr>
-                <td class="pt-3">۲</td>
-                <td class="pt-3">آکادمی</td>
-                <td class="pt-3">باران</td>
-                <td class="pt-3">آموزشگاه اشرفی</td>
-                <td class="pt-3">هنوز فعال نشده است</td>
-                <td class="pt-3">انتظار پرداخت</td>
-                <td class="pt-3">۹۱۰۰۰۰۰</td>
-                <td>
-                  <select class="form-control">
-                      <option value="">کارت به کارت</option>
-                      <option value="">واریز کریپتو</option>
-                  </select>
-                </td>
-                <td><input type="text" class="form-control text-center" placeholder="شماره پیگیری واریز را وارد نمایید" name="peyment_detile" /></td>
-                <td><a href="#" class="btn btn_banafsh">پرداخت</a></td>
-                <td><a href="#" class="btn btn-primary">انصراف</a></td>
-                <td class="pt-3"><a href="#" ><i class="bi bi-pencil-square"></i></a></td>
-  
-              </tr>
-              <tr>
-                <td class="pt-3">۳</td>
-                <td class="pt-3">تجاری</td></td>
-                <td class="pt-3">دریا</td>
-                <td class="pt-3">شرکت رامتین</td>
-                <td class="pt-3">هنوز فعال نشده است</td>
-                <td class="pt-3">انتظار پرداخت</td>
-                <td class="pt-3">۶۳۰۰۰۰۰</td>
-                <td>
-                  <select class="form-control">
-                      <option value="">کارت به کارت</option>
-                      <option value="">واریز کریپتو</option>
-                  </select>
-                </td>
-                <td><input type="text" class="form-control text-center" placeholder="شماره پیگیری واریز را وارد نمایید" name="peyment_detile" /></td>
-                <td><a href="#" class="btn btn_banafsh">پرداخت</a></td>
-                <td><a href="#" class="btn btn-primary">انصراف</a></td>
-                <td class="pt-3"><a href="#" ><i class="bi bi-pencil-square"></i></a></td>
-  
-              </tr>
-            </tbody>
+        
+          
+            @endif
+            
+            @endforeach
+           </tbody>
           </table>
         </div>
     </div>
+ 
   </div>
     <div class="row">
         <div class="col-md-12">

@@ -11,7 +11,7 @@ class project extends Model
     public function project_types(){
         return $this->belongsTo(project_type::class);
     }
-    public function order(){
+    public function orders(){
         return $this->hasMany(order::class);
     }
 }

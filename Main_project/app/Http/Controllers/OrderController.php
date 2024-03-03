@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\order;
 use Illuminate\Http\Request;
+use App\Models\payment;
+
+use App\Http\Requests\taskrequest;
+
 
 class OrderController extends Controller
 {
@@ -35,7 +39,8 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        order::create($request->all());
+        return redirect()->route('cartshow')->with('success','order create successfully!');
     }
 
     /**
@@ -70,6 +75,22 @@ class OrderController extends Controller
     public function update(Request $request, order $order)
     {
         //
+        $order=order::findOrFail($request->order_id);
+        $order->status = 'در حال بررسی';
+        $order->End_time = '+1';
+        $order->save();
+      
+        $peyment= new payment;
+        $peyment->type = $request->peyment_method;
+        $peyment->detile = $request->peyment_detile;
+        $peyment->status = 'no';
+        $peyment->user_id = $request->user_id;
+        $peyment->order_id = $request->order_id;
+        $peyment->save();
+        return redirect()->route('cartshow')->with('peyment','peyment successfully');
+
+
+        
     }
 
     /**
@@ -78,8 +99,14 @@ class OrderController extends Controller
      * @param  \App\Models\order  $order
      * @return \Illuminate\Http\Response
      */
-    public function destroy(order $order)
+    public function destroy(Request $request)
     {
+    
         //
+        $order=order::findOrFail($request->id);
+        $order->End_time = '-1';
+        $order->save();
+        return redirect()->route('cartshow')->with('alarm','delete successfully');
+
     }
 }

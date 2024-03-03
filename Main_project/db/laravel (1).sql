@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 01, 2024 at 08:37 PM
+-- Generation Time: Mar 03, 2024 at 06:13 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -55,7 +55,7 @@ CREATE TABLE `filds` (
 --
 
 INSERT INTO `filds` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'پوشاک', NULL, NULL),
+(1, 'یک زمینه را انتخاب کنید', NULL, NULL),
 (2, 'کیف و کفش', NULL, NULL),
 (3, 'لوازم کامپیتر و تجهیزات جانبی', NULL, NULL),
 (4, 'موبایل و تجهیزات جانبی', NULL, NULL),
@@ -67,7 +67,8 @@ INSERT INTO `filds` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (10, ' واردات و صادرات', NULL, NULL),
 (11, 'آموزشگاه و دانشگاه و مدارس', NULL, NULL),
 (12, 'کلینیک های پزشکی و درمانی', NULL, NULL),
-(13, 'سایر دسته ها', NULL, NULL);
+(13, 'سایر دسته ها', NULL, NULL),
+(15, 'پوشاک', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -114,14 +115,24 @@ CREATE TABLE `orders` (
   `color_2` varchar(255) NOT NULL,
   `color_3` varchar(255) NOT NULL,
   `url` varchar(255) DEFAULT NULL,
-  `admin` tinyint(1) NOT NULL DEFAULT 0,
-  `takephoto` tinyint(1) NOT NULL DEFAULT 0,
+  `admin` varchar(255) DEFAULT NULL,
+  `takephoto` varchar(255) DEFAULT NULL,
   `Logo` varchar(255) DEFAULT NULL,
   `status` varchar(255) NOT NULL DEFAULT 'در انتظار بررسی',
   `End_time` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `user_id`, `project_id`, `packege_id`, `fild_id`, `name`, `color_1`, `color_2`, `color_3`, `url`, `admin`, `takephoto`, `Logo`, `status`, `End_time`, `created_at`, `updated_at`) VALUES
+(29, 1, 5, 2, 5, 'فروشگاه مهدی', '#563d7c', '#0000ff', '#000000', 'mahdi', NULL, NULL, NULL, 'در انتظار بررسی', '-1', '2024-03-02 13:16:25', '2024-03-02 13:18:35'),
+(30, 1, 3, 2, 5, 'temp', '#563d7c', '#0000ff', '#000000', 'https://www.youtube.com/watch?v=Jpxc0TUr9BI', 'on', NULL, NULL, 'در حال بررسی', '+1', '2024-03-02 13:17:57', '2024-03-02 13:22:14'),
+(31, 1, 2, 3, 7, 'فروشگاه مهدی', '#563d7c', '#0000ff', '#000000', 'ee', NULL, NULL, NULL, 'در حال بررسی', '+1', '2024-03-02 13:25:37', '2024-03-02 13:26:08'),
+(32, 2, 3, 2, 4, 'mahdi', '#563d7c', '#0000ff', '#000000', 'sdf', 'on', NULL, NULL, 'در انتظار بررسی', NULL, '2024-03-02 14:02:08', '2024-03-02 14:02:08');
 
 -- --------------------------------------------------------
 
@@ -169,12 +180,20 @@ CREATE TABLE `payments` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `type` int(11) NOT NULL,
   `detile` text NOT NULL DEFAULT 'در انتظار پرداخت',
-  `status` int(11) NOT NULL DEFAULT 0,
+  `status` varchar(225) NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `order_id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `payments`
+--
+
+INSERT INTO `payments` (`id`, `type`, `detile`, `status`, `user_id`, `order_id`, `created_at`, `updated_at`) VALUES
+(8, 1, '353545345', 'no', 1, 30, '2024-03-02 13:22:14', '2024-03-02 13:22:14'),
+(9, 2, 'sldjknglsjgnsfjngdsfjkgnskjg', 'no', 1, 31, '2024-03-02 13:26:08', '2024-03-02 13:26:08');
 
 -- --------------------------------------------------------
 
@@ -269,7 +288,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'مهدی کریمی', 'mm@mm.com', NULL, '$2y$10$QhvydJahsjw0L0ukrInw6.1q.bd2lCwvr5.rkd8iP/Qnd/nWv/EpG', NULL, '2024-03-01 07:59:14', '2024-03-01 07:59:14');
+(1, 'مهدی کریمی', 'mm@mm.com', NULL, '$2y$10$QhvydJahsjw0L0ukrInw6.1q.bd2lCwvr5.rkd8iP/Qnd/nWv/EpG', NULL, '2024-03-01 07:59:14', '2024-03-01 07:59:14'),
+(2, 'mahdi', 'nn@nn.com', NULL, '$2y$10$goPvWk1Cgmru.ZTluHPakuqp0R1v4bhI/NpPS1aZKXWOSY/Xza5La', NULL, '2024-03-02 13:57:42', '2024-03-02 13:57:42');
 
 --
 -- Indexes for dumped tables
@@ -366,7 +386,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `filds`
 --
 ALTER TABLE `filds`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -378,7 +398,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `packeges`
@@ -390,7 +410,7 @@ ALTER TABLE `packeges`
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -414,7 +434,7 @@ ALTER TABLE `project_types`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

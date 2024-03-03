@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class packege extends Model
 {
     use HasFactory;
-    public function order(){
+    public function orders(){
         return $this->hasMany(order::class);
     }
 }
