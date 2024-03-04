@@ -19,7 +19,11 @@ Auth::routes();
 
 Route::get('/template/{id}', [App\Http\Controllers\ProjectController::class, 'index'])->name('template');
 Route::get('/insertdata/{id}', [App\Http\Controllers\HomeController::class, 'check_data'])->name('insertdata')->middleware('auth');;
-Route::get('/cartshow', [App\Http\Controllers\HomeController::class, 'cart_show'])->name('cartshow')->middleware('auth');;
+Route::get('/cartshow', [App\Http\Controllers\HomeController::class, 'cart_show'])->name('cartshow')->middleware('auth');
+Route::get('/myservice', [App\Http\Controllers\HomeController::class, 'myservice'])->name('myservice')->middleware('auth');
+Route::resource('/peyment', App\Http\Controllers\PaymentController::class)->middleware('auth');
+
+
 Route::resource('/order', App\Http\Controllers\OrderController::class)->middleware('auth');
 
 

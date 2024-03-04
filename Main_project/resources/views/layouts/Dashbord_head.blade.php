@@ -194,15 +194,15 @@
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="charts-apexcharts.html">
+            <a href="{{url('peyment')}}">
               <i class="bi bi-circle"></i><span>سابقه تراکنش</span>
             </a>
           </li>
-          <li>
+          {{-- <li>
             <a href="charts-echarts.html">
               <i class="bi bi-circle"></i><span>کیف پول</span>
             </a>
-          </li>
+          </li> --}}
         </ul>
       </li><!-- End Charts Nav -->
       <li class="nav-item">
@@ -231,6 +231,14 @@
         <a class="nav-link collapsed" href="{{url('cartshow')}}">
           <i class="bi bi-cart4"></i>
           <span>سبد خرید</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{url('myservice')}}">
+          <i class="bi bi-balloon-heart"></i>
+          <span>سرویس های خریداری شده</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
