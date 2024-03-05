@@ -45,6 +45,9 @@
               <?php $n=1 ?>
               @foreach ( $orders as $order )
                 @if($order->order_end_time != '-1')
+                @if($order->status != '1')
+                
+                
 
                 <tr>
                   <input type="hidden" value="{{$order->id}}" name="id">
@@ -144,7 +147,7 @@
 
             </tr>
         
-          
+            @endif
             @endif
             
             @endforeach
