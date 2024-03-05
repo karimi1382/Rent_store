@@ -7,6 +7,7 @@ use App\Models\project;
 use App\Models\packege;
 use App\Models\fild;
 use App\Models\project_type;
+use Carbon\Carbon;        
 
 use App\Models\order;
 
@@ -64,5 +65,9 @@ class HomeController extends Controller
                         ->where('orders.status','1')
                         ->get();
         return view('user.myservice',compact('orders'));
+
+    }
+    public function userprofile(){
+        return view('user.userprofile');
     }
 }

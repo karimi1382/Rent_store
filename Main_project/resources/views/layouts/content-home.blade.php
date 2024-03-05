@@ -82,14 +82,14 @@ https://templatemo.com/tm-568-digimedia
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav rtl">
-              <li class="scroll-to-section"><a href="#top" class="active">صفحه نخست</a></li>
-              <li class="scroll-to-section"><a href="#about">درباره ما</a></li>
-              <li class="scroll-to-section"><a href="#services">خدمات</a></li>
-              <li class="scroll-to-section"><a href="#price">پکیج های ما              </a></li>
+              <li class="scroll-to-section"><a href="{{url('/')}}" class="active">صفحه نخست</a></li>
+              <li class="scroll-to-section"><a href="{{url('/#about')}}">درباره ما</a></li>
+              <li class="scroll-to-section"><a href="{{url('/#services')}}">خدمات</a></li>
+              <li class="scroll-to-section"><a href="{{url('/#price')}}">پکیج های ما              </a></li>
 
-              <li class="scroll-to-section"><a href="#portfolio">مشترکین </a></li>
-              <li class="scroll-to-section"><a href="#blog">بلاگ</a></li>
-              <li class="scroll-to-section"><a href="#contact">تماس با ما</a></li> 
+              <li class="scroll-to-section"><a href="{{url('/#portfolio')}}">مشترکین </a></li>
+              <li class="scroll-to-section"><a href="{{url('/#blog')}}">بلاگ</a></li>
+              <li class="scroll-to-section"><a href="{{url('/#contact')}}">تماس با ما</a></li> 
               @guest
                 @if (Route::has('login'))
                   <li class="scroll-to-section"><div class="border-first-button"><a href="{{ route('login') }}">ثبت نام | ورود</a></div></li> 

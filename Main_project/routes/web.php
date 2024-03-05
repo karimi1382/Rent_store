@@ -22,6 +22,7 @@ Route::get('/insertdata/{id}', [App\Http\Controllers\HomeController::class, 'che
 Route::get('/cartshow', [App\Http\Controllers\HomeController::class, 'cart_show'])->name('cartshow')->middleware('auth');
 Route::get('/myservice', [App\Http\Controllers\HomeController::class, 'myservice'])->name('myservice')->middleware('auth');
 Route::resource('/peyment', App\Http\Controllers\PaymentController::class)->middleware('auth');
+Route::get('/userprofile', [App\Http\Controllers\HomeController::class, 'userprofile'])->name('userprofile')->middleware('auth');
 
 
 Route::resource('/order', App\Http\Controllers\OrderController::class)->middleware('auth');

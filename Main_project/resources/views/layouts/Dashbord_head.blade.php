@@ -51,7 +51,7 @@
         <ul class="d-flex align-items-center">
   
             <div class=" ">
-                <a href="index.html" class="logo ">
+                <a href="{{url('/')}}" class="logo ">
                     <img src="{{ URL::asset('assets/images/logo-v1.png') }}" alt="">
                 </a>
               </div><!-- End Logo -->
@@ -159,7 +159,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="{{url('userpanel')}}">
+        <a class="nav-link collapsed" href="{{url('userpanel')}}">
           <i class="bi bi-grid"></i>
           <span>پنل کاربری</span>
         </a>
@@ -168,34 +168,18 @@
     
 
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-person-vcard"></i><span>تنظیمات کارتابل</span><i class="bi bi-chevron-down ms-auto location_top"></i>
+        <a class="nav-link collapsed" href="{{url('userprofile')}}">
+          <i class="bi bi-person-circle"></i>
+          <span>پروفایل کاربر</span>
         </a>
-        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="forms-elements.html">
-              <i class="bi bi-circle"></i><span>ویرایش مشخصات</span>
-            </a>
-          </li>
-          <li>
-            <a href="forms-layouts.html">
-              <i class="bi bi-circle"></i><span>تغییر رمز عبور</span>
-            </a>
-          </li>
-         
-        </ul>
-      </li><!-- End Forms Nav -->
+      </li>
 
-      
+   
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-cash-coin"></i><span>اطلاعات مالی</span><i class="bi bi-chevron-down ms-auto location_top"></i>
-        </a>
-        <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="{{url('peyment')}}">
-              <i class="bi bi-circle"></i><span>سابقه تراکنش</span>
+     <!-- End Forms Nav -->
+          <li class="nav-item">
+            <a class="nav-link collapsed" href="{{url('peyment')}}">
+              <i class="bi bi-cash-coin"></i><span>سابقه تراکنش موفق</span>
             </a>
           </li>
           {{-- <li>
@@ -203,25 +187,9 @@
               <i class="bi bi-circle"></i><span>کیف پول</span>
             </a>
           </li> --}}
-        </ul>
+ 
       </li><!-- End Charts Nav -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#charts-nav_2" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-question-square"></i><span>ارتباط با پشتیبانی</span><i class="bi bi-chevron-down ms-auto location_top"></i>
-        </a>
-        <ul id="charts-nav_2" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="charts-apexcharts.html">
-              <i class="bi bi-circle"></i><span>ارسال تیکت جدید </span>
-            </a>
-          </li>
-          <li>
-            <a href="charts-echarts.html">
-              <i class="bi bi-circle"></i><span>مدیریت تیکت ها</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Charts Nav -->
+     <!-- End Charts Nav -->
 
     
 
@@ -255,7 +223,23 @@
           <span>اطلاعیه ها</span>
         </a>
       </li><!-- End Contact Page Nav -->
-
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#charts-nav_2" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-question-square"></i><span>ارتباط با پشتیبانی</span><i class="bi bi-chevron-down ms-auto location_top"></i>
+        </a>
+        <ul id="charts-nav_2" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="charts-apexcharts.html">
+              <i class="bi bi-circle"></i><span>ارسال تیکت جدید </span>
+            </a>
+          </li>
+          <li>
+            <a href="charts-echarts.html">
+              <i class="bi bi-circle"></i><span>مدیریت تیکت ها</span>
+            </a>
+          </li>
+        </ul>
+      </li>
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
           <i class="bi bi-box-arrow-left"></i>
