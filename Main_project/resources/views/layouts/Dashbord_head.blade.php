@@ -158,6 +158,38 @@
     </div>
     <ul class="sidebar-nav" id="sidebar-nav">
 
+    @if(auth()->user()->id==1)
+    <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#charts-nav_2" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-person-hearts"></i><span>دسترسی ادمین</span><i class="bi bi-chevron-down ms-auto location_top"></i>
+        </a>
+        <ul id="charts-nav_2" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{{url('adminpeyment')}}">
+              <i class="bi bi-circle"></i><span>تراکنش ها</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{url('webadmin')}}">
+              <i class="bi bi-circle"></i><span>مدیریت سایت ها</span>
+            </a>
+          </li>
+          <li>
+            <a href="charts-echarts.html">
+              <i class="bi bi-circle"></i><span>مدیریت تیکت ها</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{url('allusers')}}">
+              <i class="bi bi-circle"></i><span>لیست کاربران عضو شده</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+<hr>
+@endif
+
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{url('userpanel')}}">
           <i class="bi bi-grid"></i>
@@ -168,7 +200,7 @@
     
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{url('userprofile')}}">
+        <a class="nav-link collapsed" href="{{url('user_detile')}}">
           <i class="bi bi-person-circle"></i>
           <span>پروفایل کاربر</span>
         </a>

@@ -13,6 +13,9 @@ class User extends Authenticatable
     public function orders(){
         return $this->hasMany(order::class);
     }
+    public function user_detiles(){
+        return $this->hasone(user_detile::class,'user_id','id');
+    }
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
@@ -44,4 +47,6 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    
 }
