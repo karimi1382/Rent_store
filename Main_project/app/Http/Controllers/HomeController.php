@@ -116,7 +116,18 @@ class HomeController extends Controller
                         ->select('project_types.name as project_type','projects.title as project_title','packeges.name as packege_name','packeges.detile as packege_detile','packeges.price as packege_price','orders.admin as order_admin','payments.type as payment_type','payments.detile as payment_detile','orders.name as order_name','orders.End_time as order_End_time','orders.created_at as order_create','orders.id as id')
                         ->where('orders.status','1')->orderBy('orders.id','desc')
                         ->get();
-        return view('admin.peyment',compact('orders','orders_accept'));
+
+       $count_web=payment::where('status','<>','no')->get()->count();
+       $count_price=payment::where('status','<>','no')->select('payments.status as price')->get();
+       $count = 0;
+       foreach($count_price as $count_prices){
+        $prices=$count_prices->price ;
+        $count += (int)$prices;
+       
+       }
+       
+
+        return view('admin.peyment',compact('orders','orders_accept','count','count_web'));
     }
     public function websetting_index($id){
         $order=order::join('projects','orders.project_id','projects.id')

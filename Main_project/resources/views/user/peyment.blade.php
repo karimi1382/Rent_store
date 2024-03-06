@@ -93,15 +93,16 @@
 
               <td style="background:green;color:#fff">
                 
-                <?php 
-                    $fdate = $order->order_end_time;
-                    $tdate = $order->created_at;
-                    $datetime1 = new DateTime($fdate);
-                    $datetime2 = new DateTime($tdate);
-                    $interval = $datetime1->diff($datetime2);
-                    $days = $interval->format('%a');
-                    ?>
-                    {{$days}} روز
+              <?php 
+                                                                            $fdate = $order->order_end_time;
+                                                                            $tdate = date('d-m-Y h:m:s');
+                                                                            $datetime1 = new DateTime($fdate);
+                                                                            $datetime2 = new DateTime($tdate);
+                                                                            
+                                                                            $interval = $datetime2->diff($datetime1);
+                                                                            $days = $interval->format('%a');
+                                                                            ?>
+                                                                            {{$days}} روز  
                 
               </td>
 

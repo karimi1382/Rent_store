@@ -35,6 +35,11 @@
                             <li class="nav-item">
                                 <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">تراکنش های تایید شده </button>
                             </li>
+                            <li class="nav-item">
+                                <button class="nav-link" >تا این لحظه {{$count_web}} پروژه واریزی داشته اند که جمع مبلغ آنها {{$count}} تومان میباشد
+                                        
+                            </button>
+                            </li>
 
                         </ul>
                         <div class="tab-content pt-2">
@@ -129,15 +134,17 @@
                                                     <h5 class="card-title">نوع قالب : {{$order_accept->project_type}} - نام قالب : {{$order_accept->project_title}}</h5>
                                                     <p class="card-text ">نام کسب و کار : {{$order_accept->order_name}}</p>
                                                     <p class="card-text ">مدت اعتبار : 
-                                                        <?php 
-                                                        $fdate = $order_accept->order_End_time;
-                                                        $tdate = $order_accept->order_create;
-                                                        $datetime1 = new DateTime($fdate);
-                                                        $datetime2 = new DateTime($tdate);
-                                                        $interval = $datetime1->diff($datetime2);
-                                                        $days = $interval->format('%a');
-                                                        ?>
-                                                        {{$days}} روز    
+                                                  
+                                                    <?php 
+                                                                            $fdate = $order_accept->order_End_time;
+                                                                            $tdate = date('d-m-Y h:m:s');
+                                                                            $datetime1 = new DateTime($fdate);
+                                                                            $datetime2 = new DateTime($tdate);
+                                                                            
+                                                                            $interval = $datetime2->diff($datetime1);
+                                                                            $days = $interval->format('%a');
+                                                                            ?>
+                                                                            {{$days}} روز  
                                                     </p>
                                                     <br>
                                                     <a href="{{url('websetting/'.$order_accept->id)}}" class="btn btn_banafsh">مدیریت تنظیمات</a>

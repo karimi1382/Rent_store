@@ -41,15 +41,16 @@
                             <p class="card-text ">نام کسب و کار شما : {{$order->order_name}}</p>
                             <p class="card-text ">زمینه کسب و کار شما : {{$order->fild_name}}</p>
                             <p style="color:blueviolet">مدت اعتبار : 
-                                <?php 
-                                $fdate = $order->order_end_time;
-                                $tdate = $order->created_at;
-                                $datetime1 = new DateTime($fdate);
-                                $datetime2 = new DateTime($tdate);
-                                $interval = $datetime1->diff($datetime2);
-                                $days = $interval->format('%a');
-                                ?>
-                                {{$days}} روز
+                            <?php 
+                                                                            $fdate = $order->order_end_time;
+                                                                            $tdate = date('d-m-Y h:m:s');
+                                                                            $datetime1 = new DateTime($fdate);
+                                                                            $datetime2 = new DateTime($tdate);
+                                                                            
+                                                                            $interval = $datetime2->diff($datetime1);
+                                                                            $days = $interval->format('%a');
+                                                                            ?>
+                                                                            {{$days}} روز  
                             </p>
                             <br>
                             <a href="{{url('websetting/'.$order->order_id)}}" class="btn btn-primary">مشاهده جزئیات</a>

@@ -71,13 +71,13 @@
                  disabled></td>
               <td class="pt-3">
                 @if(isset($order->order_admin))
-                @if($order->packege_id==1)
-                    <?php $order->packege_price += 250000*3 ?>
-                @elseif($order->packege_id==2)
-                    <?php $order->packege_price += 250000*6 ?>
-                @elseif($order->packege_id==3)
-                <?php $order->packege_price += 250000*12 ?>
-                @endif
+                  @if($order->packege_id==1)
+                      <?php $order->packege_price += 250000*3 ?>
+                  @elseif($order->packege_id==2)
+                      <?php $order->packege_price += 250000*6 ?>
+                  @elseif($order->packege_id==3)
+                  <?php $order->packege_price += 250000*12 ?>
+                  @endif
                 @endif
                 {{$order->packege_price}}
               </td>
@@ -85,7 +85,7 @@
               <form id="delete_order_{{$order->id}}" action="{{ route('order.update',['order'=>$order->order_id])}}" method="POST">
                 @csrf   
                 @method('PUT')
-
+                <input type="hidden" name="price" value="{{$order->packege_price}}" >
               <td>
                 @if($order->order_end_time == '+1')
                   @if($order->peyment_type==1)

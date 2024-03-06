@@ -83,7 +83,7 @@ class OrderController extends Controller
         $peyment= new payment;
         $peyment->type = $request->peyment_method;
         $peyment->detile = $request->peyment_detile;
-        $peyment->status = 'no';
+        $peyment->status = $request->price;
         $peyment->user_id = $request->user_id;
         $peyment->order_id = $request->order_id;
         $peyment->save();
