@@ -28,9 +28,14 @@ Route::post('/user_update' , [App\Http\Controllers\UserDetileController::class,'
 Route::post('/user_newpass' , [App\Http\Controllers\UserDetileController::class,'user_newpass'])->middleware('auth');;
 
 Route::get('/adminpeyment' , [App\Http\Controllers\HomeController::class,'adminpeyment_index'])->name('adminpeyment')->middleware('auth');;
-Route::get('/websetting' , [App\Http\Controllers\HomeController::class,'websetting_index'])->name('websetting')->middleware('auth');;
+Route::get('/websetting/{id}' , [App\Http\Controllers\HomeController::class,'websetting_index'])->name('websetting')->middleware('auth');
+Route::post('/websetting_update' , [App\Http\Controllers\HomeController::class,'websetting_update'])->name('websetting_update')->middleware('auth');;
+
 Route::get('/webadmin' , [App\Http\Controllers\HomeController::class,'webadmin'])->name('webadmin')->middleware('auth');;
 Route::get('/allusers' , [App\Http\Controllers\HomeController::class,'allusers'])->name('allusers')->middleware('auth');;
+Route::post('/accept_peyment' , [App\Http\Controllers\HomeController::class,'accept_peyment'])->name('accept_peyment')->middleware('auth');;
+
+
 
 
 Route::resource('/order', App\Http\Controllers\OrderController::class)->middleware('auth');

@@ -8,6 +8,8 @@ use App\Models\packege;
 use App\Models\fild;
 use App\Models\project_type;
 use App\Models\user_detile;
+use App\Models\payment;
+
 
 use Carbon\Carbon;        
 
@@ -75,7 +77,7 @@ class HomeController extends Controller
                         ->join('filds','orders.fild_id','filds.id')
                         ->join('project_types','projects.project_type_id','project_types.id')
                         ->LeftJoin('payments','payments.order_id','orders.id')
-                        ->select('payments.updated_at as payment_updated_at','orders.created_at','packeges.id as packege_id','project_types.name as project_type_name','orders.admin as order_admin','payments.detile as payment_code','payments.type as peyment_type','orders.id as order_id','projects.title as project_title','packeges.name as packege_name','packeges.price as packege_price','packeges.detile as packege_detile','filds.name as fild_name','orders.name as order_name','orders.color_1 as order_color_1','orders.color_2 as order_color_2','orders.color_3 as order_color_3','orders.url as order_url','orders.admin as order_admin','orders.takephoto as order_takephoto','orders.end_time as order_end_time')
+                        ->select('payments.updated_at as payment_updated_at','orders.created_at','packeges.id as packege_id','project_types.name as project_type_name','orders.admin as order_admin','payments.detile as payment_code','payments.type as peyment_type','orders.id as order_id','projects.title as project_title','packeges.name as packege_name','packeges.price as packege_price','packeges.detile as packege_detile','filds.name as fild_name','orders.name as order_name','orders.color_1 as order_color_1','orders.color_2 as order_color_2','orders.color_3 as order_color_3','orders.url as order_url','orders.admin as order_admin','orders.takephoto as order_takephoto','orders.end_time as order_end_time','orders.url')
                         ->where('orders.user_id',auth()->user()->id)
                         ->where('orders.status','1')
                         ->get();
@@ -97,10 +99,51 @@ class HomeController extends Controller
     }
 
     public function adminpeyment_index(){
-        return view('admin.peyment');
+        $orders=order::join('projects','orders.project_id','projects.id')
+                        ->join('packeges','orders.packege_id','packeges.id')
+                        ->join('filds','orders.fild_id','filds.id')
+                        ->join('project_types','projects.project_type_id','project_types.id')
+                        ->LeftJoin('payments','payments.order_id','orders.id')
+                        ->select('project_types.name as project_type','projects.title as project_title','packeges.name as packege_name','packeges.detile as packege_detile','packeges.price as packege_price','orders.admin as order_admin','payments.type as payment_type','payments.detile as payment_detile','orders.id as id')
+                        ->where('orders.End_time','+1')
+                        ->get();
+
+        $orders_accept=order::join('projects','orders.project_id','projects.id')
+                        ->join('packeges','orders.packege_id','packeges.id')
+                        ->join('filds','orders.fild_id','filds.id')
+                        ->join('project_types','projects.project_type_id','project_types.id')
+                        ->LeftJoin('payments','payments.order_id','orders.id')
+                        ->select('project_types.name as project_type','projects.title as project_title','packeges.name as packege_name','packeges.detile as packege_detile','packeges.price as packege_price','orders.admin as order_admin','payments.type as payment_type','payments.detile as payment_detile','orders.name as order_name','orders.End_time as order_End_time','orders.created_at as order_create','orders.id as id')
+                        ->where('orders.status','1')->orderBy('orders.id','desc')
+                        ->get();
+        return view('admin.peyment',compact('orders','orders_accept'));
     }
-    public function websetting_index(){
-        return view('admin.websetting');
+    public function websetting_index($id){
+        $order=order::join('projects','orders.project_id','projects.id')
+        ->join('packeges','orders.packege_id','packeges.id')
+        ->join('filds','orders.fild_id','filds.id')
+        ->join('project_types','projects.project_type_id','project_types.id')
+        ->LeftJoin('payments','payments.order_id','orders.id')
+        ->select('project_types.name as project_type','projects.title as project_title','orders.admin','orders.name as order_name','packeges.price','packeges.id as packege_type','packeges.name as packege_name','orders.url','orders.color_1','orders.color_2','orders.color_3','orders.id as order_id','payments.updated_at as payment_updated','orders.End_time','orders.created_at')
+        ->where('orders.id',$id)
+        ->first();
+
+        return view('admin.websetting',compact('order'));
+    }
+    public function websetting_update(Request $request){
+        $order=order::find($request->order_id);
+        if(isset($request->url)){
+        $order->url = $request->url;
+        $order->save();
+        }
+        $payment=payment::where('order_id',$request->order_id)->first();
+        if(isset($request->time_finish)){
+        $payment->updated_at = $request->time_finish;
+        $payment->save();
+        }
+        
+        return redirect('webadmin')->with('success','chenge data succes');
+
     }
     public function webadmin(){
 
@@ -109,13 +152,39 @@ class HomeController extends Controller
         ->join('filds','orders.fild_id','filds.id')
         ->join('project_types','projects.project_type_id','project_types.id')
         ->LeftJoin('payments','payments.order_id','orders.id')
-        ->select('payments.updated_at as payment_updated_at','orders.created_at','packeges.id as packege_id','project_types.name as project_type_name','orders.admin as order_admin','payments.detile as payment_code','payments.type as peyment_type','orders.id as order_id','projects.title as project_title','packeges.name as packege_name','packeges.price as packege_price','packeges.detile as packege_detile','filds.name as fild_name','orders.name as order_name','orders.color_1 as order_color_1','orders.color_2 as order_color_2','orders.color_3 as order_color_3','orders.url as order_url','orders.admin as order_admin','orders.takephoto as order_takephoto','orders.end_time as order_end_time')
-        ->where('orders.status','1')
+        ->select('payments.updated_at as payment_updated_at','orders.created_at','packeges.id as packege_id','project_types.name as project_type_name','orders.admin as order_admin','payments.detile as payment_code','payments.type as peyment_type','orders.id as order_id','projects.title as project_title','packeges.name as packege_name','packeges.price as packege_price','packeges.detile as packege_detile','filds.name as fild_name','orders.name as order_name','orders.color_1 as order_color_1','orders.color_2 as order_color_2','orders.color_3 as order_color_3','orders.url as order_url','orders.admin as order_admin','orders.takephoto as order_takephoto','orders.end_time as order_end_time','orders.id as order_id','orders.url')
+        ->where('orders.status','1')->orderBy('orders.id','desc')
         ->get();
         return view('admin.webadmin',compact('orders'));
     }
     public function allusers(){
         $user_detiles=user_detile::with('users')->get();
         return view('admin.allusers',compact('user_detiles'));
+    }
+    public function accept_peyment(Request $request){
+        $order=order::find($request->order_id);
+        $end_time = Carbon::now('Asia/Tehran') ;
+       
+        $packege = $order->packege_id;
+        if($packege==1)
+        $end_time->addMonth(3);
+        if($packege==2)
+        $end_time->addMonth(6);
+        if($packege==3)
+        $end_time->addMonth(12);
+       
+
+        if($request->status==1){
+            $order->status = 1;
+            $order->End_time = $end_time;
+        }
+        if($request->status==0){
+            $payment=payment::where('order_id',$request->order_id);
+            $payment->delete();
+            $order->End_time = null;
+            $order->status = 'در انتظار پرداخت';
+        }
+        $order->save();
+        return redirect('adminpeyment')->with('success','chenge data succes');
     }
 }

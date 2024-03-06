@@ -1,7 +1,10 @@
 @extends('layouts.Dashbord_head')
 
 @section('content')
+@if(session()->has('success'))
+<div class=" alert alert-success text-center">اطلاعات کاربری شما با موفقیت ویرایش  شد. </div>
 
+@endif
 <div class="pagetitle p-3">
     <h1>ادمین سایت</h1>
     <nav>
@@ -36,6 +39,7 @@
                         </ul>
                         <div class="tab-content pt-2">
                           <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                            <div class="row">
                                     @foreach ($orders as $order)
                                     <?php
                                                         $start = $order->payment_updated_at;
@@ -57,11 +61,24 @@
                                                         <img src="{{ asset('assets/images/blog-post-04.jpg')}}" alt="web" />
                                                     </div>
                                                     <div class="col-md-8 p-4">
+                                                        <h3>کد سفارش: {{$order->order_id}}</h3>
                                                         <h5 class="card-title">نوع قالب : {{$order->project_type_name}} / اسم قالب : {{$order->project_title}}</h5>
                                                         <p class="card-text ">نام کسب و کار شما : {{$order->order_name}}</p>
                                                         <p class="card-text ">زمینه کسب و کار شما : {{$order->fild_name}}</p>
+                                                        <p class="card-text ">مدت زمان اجاره : {{$order->packege_name}}</p>
+                                                        <p style="color:blueviolet">مدت اعتبار : 
+                                                            <?php 
+                                                            $fdate = $order->order_end_time;
+                                                            $tdate = $order->created_at;
+                                                            $datetime1 = new DateTime($fdate);
+                                                            $datetime2 = new DateTime($tdate);
+                                                            $interval = $datetime1->diff($datetime2);
+                                                            $days = $interval->format('%a');
+                                                            ?>
+                                                            {{$days}} روز
+                                                        </p>
                                                         <br>
-                                                        <a href="{{url('#')}}" class="btn btn-primary">مشاهده جزئیات</a>
+                                                        <a href="{{url('websetting/'.$order->order_id)}}" class="btn btn-primary">مشاهده جزئیات</a>
                                                           
                                                     </div>               
                                                 </div>
@@ -69,6 +86,7 @@
                                         </div>
                                         @endif
                                     @endforeach
+                                    </div>
                               </div>
                             </div>
                             <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
@@ -88,12 +106,27 @@
                                                                         <img src="{{ asset('assets/images/blog-post-04.jpg')}}" alt="web" />
                                                                     </div>
                                                                     <div class="col-md-8 p-4">
+                                                                        <h3>کد سفارش: {{$order->order_id}}</h3>
+
                                                                         <h5 class="card-title">نوع قالب : {{$order->project_type_name}} / اسم قالب : {{$order->project_title}}</h5>
                                                                         <p class="card-text ">نام کسب و کار شما : {{$order->order_name}}</p>
                                                                         <p class="card-text ">زمینه کسب و کار شما : {{$order->fild_name}}</p>
+                                                                        <p class="card-text ">مدت زمان اجاره : {{$order->packege_name}}</p>
+                                                                        <p style="color:blueviolet">مدت اعتبار : 
+                                                                            <?php 
+                                                                            $fdate = $order->order_end_time;
+                                                                            $tdate = $order->created_at;
+                                                                            $datetime1 = new DateTime($fdate);
+                                                                            $datetime2 = new DateTime($tdate);
+                                                                            $interval = $datetime1->diff($datetime2);
+                                                                            $days = $interval->format('%a');
+                                                                            ?>
+                                                                            {{$days}} روز
+                                                                        </p>
+
                                                                         <br>
-                                                                        <a href="{{url('websetting')}}" class="btn btn-primary">مشاهده جزئیات</a>
-                                                                        <a href="{{url('#')}}" class="btn btn_banafsh">مشاهده وبسایت</a>                                                       
+                                                                        <a href="{{url('websetting/'.$order->order_id)}}" class="btn btn-primary">مشاهده جزئیات</a>
+                                                                        <a href="{{url('/'.$order->url)}}" class="btn btn_banafsh">مشاهده وبسایت</a>                                                       
                                                                     </div>               
                                                                 </div>
                                                             </div>

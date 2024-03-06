@@ -21,6 +21,8 @@
                 <th>ردیف</th>
                 <th>نوع سایت</th>
                 <th style="width: 90px !important">نام قالب</th>
+                <th style="width: 90px !important">کد سفارش</th>
+
                 <th style="width: 200px !important">پکیج انتخابی</th>
                 <th style="width: 130px !important">وضعیت</th>
                 <th>ادمین</th>
@@ -40,6 +42,8 @@
               <td class="pt-3">{{$n++}}</td>
               <td class="pt-3">{{$order->project_type_name}}</td>
               <td class="pt-3">{{$order->project_title}}</td>
+              <td class="pt-3">{{$order->order_id}}</td>
+
               <td class="pt-3">{{$order->packege_name}}</td>
               
               <td class="pt-3">

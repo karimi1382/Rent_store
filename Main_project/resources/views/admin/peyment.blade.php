@@ -46,6 +46,8 @@
                                                 <th>ردیف</th>
                                                 <th>نوع سایت</th>
                                                 <th style="width: 90px !important">نام قالب</th>
+                                                <th style="width: 90px !important">کد سفارش</th>
+
                                                 <th style="width: 200px !important">پکیج انتخابی</th>
                                                 <th>ادمین</th>
                                                 <th style="width: 20px !important">مبلغ</th>
@@ -58,33 +60,52 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php $n=1; ?>
+                                            @foreach ($orders as $order)
+                                                
+                                            
                                             <tr>
-                                                <td>1</td>
-                                                <td>فروشگاه</td>
-                                                <td>دریا</td>
-                                                <td>پکیج 3 ماهه</td>
-                                                <td> <input type="checkbox" checked disabled ></td>
-                                                <td>5200000</td>
-                                                <td>کارت به کارت</td>
-                                                <td>85412541</td>
-                                                <td><a href=""><i class="bi bi-check-square bi_yes"></i></a></td>
-                                                <td><a href=""><i class="bi bi-x-square bi_no"></i></a></td>
+                                                <td>{{$n++}}</td>
+                                                <td>{{$order->project_type}}</td>
+                                                <td>{{$order->project_title}}</td>
+                                                <td>{{$order->id}}</td>
+
+                                                <td>{{$order->packege_name}} - {{$order->packege_detile}}</td>
+                                                <td> <input type="checkbox"
+                                                    @if($order->order_admin=='on')
+                                                     checked 
+                                                     @endif
+                                                     disabled ></td>
+                                                <td>{{$order->packege_price}}</td>
+                                                <td>@if($order->payment_type==1)
+                                                     کارت به کارت 
+                                                    @else
+                                                    واریز کریپتو
+                                                    @endif
+                                                </td>
+                                                <td>{{$order->payment_detile}}</td>
+                                                <form method="POST" action="{{url('accept_peyment')}}" >
+                                                    @csrf
+                                                <td>
+                                                    <input type="hidden" name="order_id" value="{{$order->id}}">
+                                                    <input type="hidden" name="status" value="1" >
+                                                    <button class="btn" type="submit"><i class="bi bi-check-square bi_yes"></i></button>
+                                                </td>
+                                                </form>
+                                                <form method="POST" action="{{url('accept_peyment')}}" >
+                                                    @csrf
+                                                    <td>
+                                                        <input type="hidden" name="order_id" value="{{$order->id}}">
+                                                        <input type="hidden" name="status" value="0" >
+                                                        <button class="btn" type="submit"><i class="bi bi-x-square bi_no"></i></button>
+                                                    </td>
+                                                    </form>
+
+                                         
 
                                             </tr>
-
-                                            <tr>
-                                                <td>2</td>
-                                                <td>تجاری</td>
-                                                <td>ارغوان</td>
-                                                <td>پکیج 6 ماهه</td>
-                                                <td> <input type="checkbox" checked disabled ></td>
-                                                <td>9200000</td>
-                                                <td>کارت به کارت</td>
-                                                <td>525412</td>
-                                                <td><a href=""><i class="bi bi-check-square bi_yes"></i></a></td>
-                                                <td><a href=""><i class="bi bi-x-square bi_no"></i></a></td>
-
-                                            </tr>
+                                            @endforeach
+                                            
 
 
                                         </tbody>
@@ -93,27 +114,41 @@
                             </div>
                             <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
                              <!-- Profile Edit Form -->
-
-
-                                <div class="col-md-6">
-                                    <div class="card mb-6">
-                                        <div class="row g-0">
-                                            
-                                            <div class="col-md-4 p-4">
-                                                <img src="{{ asset('assets/images/blog-post-04.jpg')}}" alt="web" />
+<div class="row">
+                                @foreach ($orders_accept as $order_accept)
+                                                               
+                                    <div class="col-md-6">
+                                        <div class="card mb-6">
+                                            <div class="row g-0">
+                                                
+                                                <div class="col-md-4 p-4">
+                                                    <img src="{{ asset('assets/images/blog-post-04.jpg')}}" alt="web" />
+                                                </div>
+                                                <div class="col-md-8 p-4">
+                                                    <h3>کد سفارش: {{$order_accept->id}}</h3>
+                                                    <h5 class="card-title">نوع قالب : {{$order_accept->project_type}} - نام قالب : {{$order_accept->project_title}}</h5>
+                                                    <p class="card-text ">نام کسب و کار : {{$order_accept->order_name}}</p>
+                                                    <p class="card-text ">مدت اعتبار : 
+                                                        <?php 
+                                                        $fdate = $order_accept->order_End_time;
+                                                        $tdate = $order_accept->order_create;
+                                                        $datetime1 = new DateTime($fdate);
+                                                        $datetime2 = new DateTime($tdate);
+                                                        $interval = $datetime1->diff($datetime2);
+                                                        $days = $interval->format('%a');
+                                                        ?>
+                                                        {{$days}} روز    
+                                                    </p>
+                                                    <br>
+                                                    <a href="{{url('websetting/'.$order_accept->id)}}" class="btn btn_banafsh">مدیریت تنظیمات</a>
+                                                    
+                                                </div>               
                                             </div>
-                                            <div class="col-md-8 p-4">
-                                                <h5 class="card-title">نوع قالب : فروشگاه - نام قالب : ارغوان</h5>
-                                                <p class="card-text ">نام کسب و کار : فروشگاه پوشاک محدویان</p>
-                                                <p class="card-text ">مدت اعتبار : 58 روز</p>
-                                                <br>
-                                                <a href="{{url('websetting')}}" class="btn btn_banafsh">مدیریت تنظیمات</a>
-                                                  
-                                            </div>               
                                         </div>
                                     </div>
-                                </div>
 
+                                @endforeach
+                            </div>
 
                             </div>
 
