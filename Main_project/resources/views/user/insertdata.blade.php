@@ -1,6 +1,10 @@
 @extends('layouts.content-home')
 @section('content')
 
+@if(session()->has('error_file'))
+  <div class=" alert alert-success">حجم لوگوی انتخابی باید کمتر از ۵ مگابایت باشد</div>
+@endif
+
 <section id="inserdata_type" class="main-banner">
     <div class="container">
    
@@ -13,7 +17,7 @@
         </div>
         <div class="row justify-content-center  wow fadeInUp rtl" data-wow-duration="1.5s" data-wow-delay="0.5s">
             <div class="col-6 rtl form_insert">
-                <form action="{{url('order')}}" method="post">
+                <form action="{{url('order')}}" method="post" enctype='multipart/form-data'>
                     @csrf
                     <div class="row">
                         <div class="col-md-6">
@@ -82,7 +86,7 @@
                         </div>
                         <div class="col-md-6">
                             <label for="template_logo" class="form-label">در صورتی که لوگویی برای کسب و کار خود دارد آن را بصورت بدون پس زمینه برای سایت مورد نظر انتخاب نمایید</label>
-                            <input type="file" placeholder="mihansazan" name="logo" id="template_logo" class="form-control text-start"/>
+                            <input type="file" placeholder="mihansazan" name="File" id="template_logo" class="form-control text-start"/>
                         </div>
                     </div>
                     <div class="row">

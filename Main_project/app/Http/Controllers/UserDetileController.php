@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use APP\Models\User;
 use App\Models\user_detile;
 use Illuminate\Support\Facades\Hash;
+use Auth;
+use File;
+
 
 
 class UserDetileController extends Controller
@@ -20,7 +23,23 @@ class UserDetileController extends Controller
     public function update(Request $request)
     {
         //
-   
+        $request->validate([
+            'File' => 'sometimes|file|image|mimes:jpeg,png,jpg,gif,svg|max:5000',
+        ]);
+        
+        if(isset($request->File)){
+        $file_size=($request->File)->getSize();
+        // dd($file_size);
+
+
+        // $image_info = getimagesize($request->File);
+        // $image_width = $image_info[0];
+        // $image_height = $image_info[1];
+        if($file_size > 5000000){
+            return redirect('user_detile')->with('error_file','edit seccess');
+
+        }
+    }
         $id=auth()->User()->id;
 
         $user_detile=user_detile::find($id);
@@ -30,7 +49,15 @@ class UserDetileController extends Controller
         $user_detile->mobile         =       $request->mobile;
         $user_detile->instagram      =       $request->instagram;
         $user_detile->linkedin       =       $request->linkedin;
-        $user_detile->photo_address   =       $request->photo_address;
+        if($request->File()) {
+            if(isset($user_detile->photo_address)){
+                File::delete(storage_path('app/public/user').'/'.auth::user()->id.'/'.$user_detile->photo_address);
+            }
+            $fileName = time().'_'.$request->File->getClientOriginalName();
+            $filePath = $request->File->storeAs('user/'.auth::user()->id, $fileName, 'public');
+            $user_detile->photo_address = $fileName;
+        } 
+
         $user_detile->save();
 
         if(isset($request->name)){

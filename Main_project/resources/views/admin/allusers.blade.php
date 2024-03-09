@@ -57,7 +57,14 @@
                                        
                                             <tr>
                                                 <td>{{$n++}}</td>
-                                                <td><img src="{{'dashbord/assets/img/profile-img.jpg'}}" alt="Profile" class="adminusersimg"></td>
+                                                <td>
+                                                    @if(isset($user_detile->photo_address))
+                                                    <img class="adminusersimg" src="{{asset('storage/user/'.$user_detile->users->id.'/'.$user_detile->photo_address)}}" alt="Profile">
+                                                    @else
+                                                    <img src="{{asset('storage/user_avatar.jpeg')}}" alt="Profile" class="adminusersimg">
+                                                    @endif
+
+
                                                 <td>{{$user_detile->users->name}}</td>
                                                 <td>{{$user_detile->city}}</td>
                                                 <td> {{$user_detile->country}}</td>

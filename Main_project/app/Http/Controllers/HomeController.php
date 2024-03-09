@@ -137,7 +137,7 @@ class HomeController extends Controller
         ->join('filds','orders.fild_id','filds.id')
         ->join('project_types','projects.project_type_id','project_types.id')
         ->LeftJoin('payments','payments.order_id','orders.id')
-        ->select('project_types.name as project_type','projects.title as project_title','orders.admin','orders.name as order_name','packeges.price','packeges.id as packege_type','packeges.name as packege_name','orders.url','orders.color_1','orders.color_2','orders.color_3','orders.id as order_id','payments.updated_at as payment_updated','orders.End_time','orders.created_at')
+        ->select('orders.logo','project_types.name as project_type','projects.title as project_title','orders.admin','orders.name as order_name','packeges.price','packeges.id as packege_type','packeges.name as packege_name','orders.url','orders.color_1','orders.color_2','orders.color_3','orders.id as order_id','payments.updated_at as payment_updated','orders.End_time','orders.created_at','orders.user_id')
         ->where('orders.id',$id)
         ->first();
 

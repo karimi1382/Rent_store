@@ -12,10 +12,30 @@
 
 @endif
 
+
+@if(session()->has('error_file'))
+<div class=" alert alert-danger text-center">حجم فایل آپلود شده می بایست کمتر از ۵ مگابایت  باشد </div>
+
+@endif
+
 @if(session()->has('error'))
 <div class=" alert alert-danger text-center">رمز عبور تغییر نکرد - رمز های عبور با هم مطابقت نداشت</div>
 
 @endif
+
+
+
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 
 
 <div class="pagetitle p-3">
@@ -98,14 +118,19 @@
               <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
                 <!-- Profile Edit Form -->
-                <form action="{{url('user_update')}}" method="post">
+                <form action="{{url('user_update')}}" method="post" enctype='multipart/form-data'>
                 @csrf
                   <div class="row mb-3">
                     <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">عکس پروفایل</label>
                     <div class="col-md-8 col-lg-9">
-                      <img src="{{'dashbord/assets/img/profile-img.jpg'}}" alt="Profile">
+                      @if(isset($user_detile->photo_address))
+                      <img src="{{asset('storage/user/'.auth::user()->id.'/'.$user_detile->photo_address)}}" alt="Profile">
+                      @else
+                      <img src="{{asset('storage/user_avatar.jpeg')}}" alt="Profile" class="adminusersimg">
+                      @endif
+
                       <div class="pt-2">
-                        <input type="file" name="photo_address" class="form-control" />
+                        <input type="file"  name="File" class="form-control" />
                       </div>
                     </div>
                   </div>

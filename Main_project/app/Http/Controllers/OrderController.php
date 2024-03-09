@@ -6,6 +6,7 @@ use App\Models\order;
 use Illuminate\Http\Request;
 use App\Models\payment;
 use App\Models\noti_send;
+use Auth;
 
 
 use App\Http\Requests\taskrequest;
@@ -41,7 +42,42 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        order::create($request->all());
+           //
+           $order_id=order::orderby('id','DESC')->first();
+           $id=$order_id->id;
+           $id++;
+           $request->validate([
+            'File' => 'sometimes|file|image|mimes:jpeg,png,jpg,gif,svg|max:5000',
+        ]);
+        
+        if(isset($request->File)){
+        $file_size=($request->File)->getSize();
+        if($file_size > 5000000){
+            return redirect()->route('adminticketdetail',$request->project_id)->with('error_file','edit seccess');
+        }
+    }
+        $order=new order;
+        $order->user_id     =       $request->user_id;
+        $order->project_id  =       $request->project_id;
+        $order->packege_id  =       $request->packege_id;
+        $order->fild_id     =       $request->fild_id;
+        $order->name        =       $request->name;
+        $order->color_1     =       $request->color_1;
+        $order->color_2     =       $request->color_2;
+        $order->color_3     =       $request->color_3;
+        $order->url         =       $request->url;
+        $order->admin       =       $request->admin;
+        $order->takephoto   =       $request->takephoto;
+
+    if($request->File()) {
+     
+        $fileName = time().'_'.$request->File->getClientOriginalName();
+        $filePath = $request->File->storeAs('user/'.auth::user()->id.'/order/'.$id.'/', $fileName, 'public');
+        $order->logo = $fileName;
+    } 
+
+
+        $order->save();
         return redirect()->route('cartshow')->with('success','order create successfully!');
     }
 

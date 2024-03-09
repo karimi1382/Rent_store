@@ -143,7 +143,15 @@
 
     <div class="col-md-12 user_info">
         <div class="row">
-            <img src="{{asset('Dashbord/assets/img/profile-img.jpg')}}" />
+          <?php 
+             $user_detile=App\Models\user_detile::where('user_detiles.user_id',auth::user()->id)->first();
+            ?>
+            @if(isset($user_detile->photo_address))
+          <img src="{{asset('storage/user/'.auth::user()->id.'/'.$user_detile->photo_address)}}" alt="Profile">
+          @else
+          <img src="{{asset('storage/user_avatar.jpeg')}}" alt="Profile" class="adminusersimg">
+
+          @endif
         </div>
         <div class="row">
             <h4 class="text-center">

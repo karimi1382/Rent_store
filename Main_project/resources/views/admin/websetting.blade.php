@@ -70,29 +70,52 @@
                
             
         </div>
-        @if(auth()->user()->id==1)
-        <div class="col-md-3 p-4">
-            <form method="post" action="{{url('websetting_update')}}">
-                @csrf
-                <div class="mb-3">
-                    <label for="calender" class="form-label">تعیین تاریخ آماده سازی</label>
-                    <input style="direction:ltr" type="text" id="calender" name="time_finish" class="form-control" value="{{$order->payment_updated}}" />
-                    <div style="direction:ltr" class="form-text" >2024-03-05 10:12:46</div>
-                </div>
-                <div class="mb-3">
-                    <label for="calender" class="form-label">آدرس بارگذاری سایت</label>
-                    <input style="direction:ltr" type="text" name="url" class="form-control" value="{{$order->url}}" />
-                <div>
-                <div class="mt-3 text-start">
-                    <input type="hidden" value="{{$order->order_id}}" name="order_id" >
-                    <input type="submit" class="btn btn_banafsh " value="ثبت اطلاعات" />
-                </div>
-            </form>
-        </div>
-        @endif
-    </div>
-</div>
 
+       
+
+
+        <div class="col-md-3 ">
+            <h5 class="text-center p-4">
+                لوگوی آپلود شده توسط کاربر
+            </h5>
+                @if(isset($order->logo))
+                <img class="" src="{{asset('storage/user/'.$order->user_id.'/order/'.$order->order_id.'/'.$order->logo)}}" alt="Profile">
+                @else
+                <p class="text-center p-4">
+                    لوگویی آپلود نشده است
+                </p>
+                @endif
+            
+            </div>
+
+
+ 
+     
+    </div>
+    
+</div>
+<hr>
+
+@if(auth()->user()->id==1)
+<div class="col-md-3 p-4 mx-auto">
+    <form method="post" action="{{url('websetting_update')}}">
+        @csrf
+        <div class="mb-3">
+            <label for="calender" class="form-label">تعیین تاریخ آماده سازی</label>
+            <input style="direction:ltr" type="text" id="calender" name="time_finish" class="form-control" value="{{$order->payment_updated}}" />
+            <div style="direction:ltr" class="form-text" >2024-03-05 10:12:46</div>
+        </div>
+        <div class="mb-3">
+            <label for="calender" class="form-label">آدرس بارگذاری سایت</label>
+            <input style="direction:ltr" type="text" name="url" class="form-control" value="{{$order->url}}" />
+        <div>
+        <div class="mt-3 text-start">
+            <input type="hidden" value="{{$order->order_id}}" name="order_id" >
+            <input type="submit" class="btn btn_banafsh " value="ثبت اطلاعات" />
+        </div>
+    </form>
+</div>
+@endif
 
 
 @endsection
