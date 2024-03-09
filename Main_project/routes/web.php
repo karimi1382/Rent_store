@@ -33,6 +33,10 @@ Route::post('/addticket', [App\Http\Controllers\MainTicketController::class, 'in
 Route::get('/allticket', [App\Http\Controllers\MainTicketController::class, 'allticket'])->name('allticket')->middleware('auth');
 Route::get('/ticketdetail/{id}', [App\Http\Controllers\MainTicketController::class, 'ticketdetail'])->name('ticketdetail')->middleware('auth');
 Route::post('/addanswerticket', [App\Http\Controllers\MainTicketController::class, 'addanswerticket'])->name('addanswerticket')->middleware('auth');
+Route::post('/close_ticket', [App\Http\Controllers\MainTicketController::class, 'close_ticket'])->name('close_ticket')->middleware('auth');
+
+
+
 
 
 
@@ -46,6 +50,10 @@ Route::post('/websetting_update' , [App\Http\Controllers\HomeController::class,'
 Route::get('/webadmin' , [App\Http\Controllers\HomeController::class,'webadmin'])->name('webadmin')->middleware('auth');;
 Route::get('/allusers' , [App\Http\Controllers\HomeController::class,'allusers'])->name('allusers')->middleware('auth');;
 Route::post('/accept_peyment' , [App\Http\Controllers\HomeController::class,'accept_peyment'])->name('accept_peyment')->middleware('auth');;
+Route::get('/adminallticket', [App\Http\Controllers\MainTicketController::class, 'adminallticket'])->name('adminallticket')->middleware('auth');
+Route::get('/adminticketdetail/{id}', [App\Http\Controllers\MainTicketController::class, 'adminticketdetail'])->name('adminticketdetail')->middleware('auth');
+
+
 
 
 

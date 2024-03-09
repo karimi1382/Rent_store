@@ -32,8 +32,9 @@
                                 <option selected>یک موضوع را انتخاب کنید</option>
                                 @foreach ($ticket_types as  $ticket_type)
                                     
+                               
+                                <option value="{{$ticket_type->id}}">{{$ticket_type->title}} </option>
                                 @endforeach
-                                <option value="{{$ticket_type->id}}">{{$ticket_type->title}}۱ </option>
                               </select>
                             </div>
                           </div>

@@ -54,12 +54,15 @@
                           {{$allticket->ticket_types->title}}   
                         </h4>
                         <p>وضعیت : منتظر پاسخ کارشناس پشتیبانی</p>
-                        <a href="{{url('ticketdetail/ ').$allticket->id}}" class="btn btn_banafsh" >مشاهده سابقه تیکت</a>
+                        <a href="{{url('adminticketdetail/ ').$allticket->id}}" class="btn btn_banafsh" >مشاهده سابقه تیکت</a>
                         
                         <div class="text-start time_tikect">
-                          زمان ارسال : {{verta($allticket->created_at)->timezone('Asia/Tehran')->format('j F Y - h:i - A')}}
-                    
-                      </div>
+                            زمان ارسال : {{verta($allticket->created_at)->timezone('Asia/Tehran')->format('j F Y - h:i - A')}}
+                        <?php 
+                              $user_ticket=App\Models\user::find($allticket->user_id);
+                        ?>
+                        <p> از طرف: {{$user_ticket->name}} - کد: {{$user_ticket->id}}</p>
+                        </div>
                       </div>
                      
               
@@ -93,12 +96,15 @@
                   {{$allticket->ticket_types->title}}   
                 </h4>
                 <p>وضعیت : منتظر پاسخ کارشناس پشتیبانی</p>
-                <a href="{{url('ticketdetail/ ').$allticket->id}}" class="btn btn_banafsh" >مشاهده سابقه تیکت</a>
+                <a href="{{url('adminticketdetail/ ').$allticket->id}}" class="btn btn_banafsh" >مشاهده سابقه تیکت</a>
+                
                 <div class="text-start time_tikect">
-                  زمان ارسال : {{verta($allticket->created_at)->timezone('Asia/Tehran')->format('j F Y - h:i - A')}}
-            
-              </div>
-      
+                    زمان ارسال : {{verta($allticket->created_at)->timezone('Asia/Tehran')->format('j F Y - h:i - A')}}
+                <?php 
+                      $user_ticket=App\Models\user::find($allticket->user_id);
+                ?>
+                <p> از طرف: {{$user_ticket->name}} - کد: {{$user_ticket->id}}</p>
+                </div>
               </div>
              
       

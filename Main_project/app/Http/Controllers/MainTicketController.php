@@ -27,8 +27,6 @@ class MainTicketController extends Controller
     }
     public function allticket(){
         $alltickets = main_ticket::with('ticket_types')->where('user_id',auth::user()->id)->orderBy('main_tickets.id')->get();
-        // $answer=answer_ticket::with('main_ticket')->where('main_tickets.user_id',auth::user()->id)->get();
-        // dd($answer);
         return view('user.allticket',compact('alltickets'));
     }
     public function ticketdetail($id){
@@ -53,7 +51,41 @@ class MainTicketController extends Controller
         $mane_ticket=main_ticket::find($request->main_ticket_id);
         $mane_ticket->status = 1;
         $mane_ticket->save();
+        if(auth::user()->id==1){
+            return redirect()->route('adminticketdetail',$request->main_ticket_id)->with('success','ticket answer success');
 
+        }else{
         return redirect()->route('ticketdetail',$request->main_ticket_id)->with('success','ticket answer success');
+        }
+    }
+    public function close_ticket(Request $request)
+    {
+        $main_ticket=main_ticket::find($request->main_ticket_id);
+        $main_ticket->status = (int)$request->status;
+        $main_ticket->save();
+        if(auth::user()->id==1){
+            return redirect('adminallticket')->with('close','close ticket');
+        }else{
+        return redirect('allticket')->with('close','close ticket');
+    }
+    
+        }
+    
+
+    public function adminallticket(){
+        $alltickets = main_ticket::with('ticket_types')->orderBy('main_tickets.id')->get();
+        return view('admin.allticket',compact('alltickets'));
+
+    }
+    public function adminticketdetail($id){
+        $ticketdetails=null;
+        
+            $ticketdetails=answer_ticket::with('main_tickets')->where('answer_tickets.main_ticket_id',$id)->orderBy('answer_tickets.id','DESC')->get();
+            $alltickets = main_ticket::with('ticket_types')->where('main_tickets.id',$id)->first();
+            $ticketdetail_status=answer_ticket::with('main_tickets')->where('answer_tickets.main_ticket_id',$id)->orderBy('answer_tickets.id','DESC')->first();
+
+         
+            return view('admin.ticketdetail',compact('ticketdetails','alltickets','ticketdetail_status'));
+        
     }
 }

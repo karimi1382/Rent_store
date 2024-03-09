@@ -174,9 +174,14 @@
               <i class="bi bi-circle"></i><span>مدیریت سایت ها</span>
             </a>
           </li>
+
+      <?php 
+      $ticket_count=App\Models\main_ticket::with('answer_tickets')->where('main_tickets.status',1)->get()->count();
+    ?>
           <li>
-            <a href="charts-echarts.html">
-              <i class="bi bi-circle"></i><span>مدیریت تیکت ها</span>
+            <a href="{{url('adminallticket')}}">
+              <i class="bi bi-circle"></i><span>مدیریت تیکت ها</span>          <span class="badge bg_primary"> {{$ticket_count}} </span> 
+
             </a>
           </li>
           <li>
@@ -257,9 +262,17 @@
           <span>اطلاعیه ها</span>            <span class="badge bg_primary"> {{$noti_count}} </span>     
         </a>
       </li><!-- End Contact Page Nav -->
+
+      <?php 
+  $ticket_count=App\Models\main_ticket::with('answer_tickets')->where('main_tickets.status',1)->where('main_tickets.user_id',auth::user()->id)->get()->count();
+?>
+@if(auth::user()->id != 1)
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#charts-nav_2" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-question-square"></i><span>ارتباط با پشتیبانی</span><i class="bi bi-chevron-down ms-auto location_top"></i>
+          <i class="bi bi-question-square"></i>
+          <span>ارتباط با پشتیبانی</span>
+          <span class="badge bg_primary"> {{$ticket_count}} </span> 
+          <i class="bi bi-chevron-down ms-auto location_top"></i>
         </a>
         <ul id="charts-nav_2" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -275,6 +288,7 @@
           </li>
         </ul>
       </li>
+      @endif
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
           <i class="bi bi-box-arrow-left"></i>
