@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\answer_ticket;
 use App\Models\main_ticket;
 use App\Models\ticket_type;
+use Hekmatinasser\Verta\Verta;
 
 use Illuminate\Http\Request;
 use Auth;
@@ -37,7 +38,7 @@ class MainTicketController extends Controller
             $alltickets = main_ticket::with('ticket_types')->where('user_id',auth::user()->id)->where('main_tickets.id',$id)->first();
             $ticketdetail_status=answer_ticket::with('main_tickets')->where('answer_tickets.main_ticket_id',$id)->orderBy('answer_tickets.id','DESC')->first();
 
-
+         
             return view('user.ticketdetail',compact('ticketdetails','alltickets','ticketdetail_status'));
         }
     }

@@ -66,8 +66,8 @@
                         <p>
                             {{$ticketdetail->answer}}
                         </p>
-                        <div class="text-start">
-                            زمان ارسال : {{$ticketdetail->created_at}}
+                        <div class="text-start time_tikect">
+                            زمان ارسال : {{verta($ticketdetail->created_at)->timezone('Asia/Tehran')->format('j F Y - h:i - A')}}
                         </div>
                         <hr>
                         @endforeach
