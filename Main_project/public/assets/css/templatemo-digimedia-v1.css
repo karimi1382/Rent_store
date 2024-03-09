@@ -48,6 +48,7 @@ figure, header, nav, section, article, aside, footer, figcaption {
 }
 .rtl{
   direction: rtl;
+  z-index: 100;
 }
 .justify_text{
   text-align: justify;
@@ -2385,4 +2386,15 @@ responsive
 .time_tikect{
   color: #777473;
   font-size: 13px;
+}
+.ltr{
+  direction: ltr;
+  z-index: 999;
+}
+.notification_dashbord{
+  padding: 0px 10px 0px 10px;
+  margin: 0px 5px 0px 5px;
+  background-color: #726ae3;
+  border-radius: 5px;
+  color: #fff;
 }
