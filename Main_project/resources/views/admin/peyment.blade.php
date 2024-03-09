@@ -81,7 +81,18 @@
                                                      checked 
                                                      @endif
                                                      disabled ></td>
-                                                <td>{{$order->packege_price}}</td>
+                                                <td>
+                                                    @if(isset($order->order_admin))
+                                                    @if($order->packege_id==1)
+                                                        <?php $order->packege_price += 250000*3 ?>
+                                                    @elseif($order->packege_id==2)
+                                                        <?php $order->packege_price += 250000*6 ?>
+                                                    @elseif($order->packege_id==3)
+                                                    <?php $order->packege_price += 250000*12 ?>
+                                                    @endif
+                                                    @endif
+                                                    {{$order->packege_price}}
+                                                </td>
                                                 <td>@if($order->payment_type==1)
                                                      کارت به کارت 
                                                     @else

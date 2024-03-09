@@ -160,10 +160,10 @@
 
     @if(auth()->user()->id==1)
     <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#charts-nav_2" data-bs-toggle="collapse" href="#">
+        <a class="nav-link collapsed" data-bs-target="#charts-nav_3" data-bs-toggle="collapse" href="#">
         <i class="bi bi-person-hearts"></i><span>دسترسی ادمین</span><i class="bi bi-chevron-down ms-auto location_top"></i>
         </a>
-        <ul id="charts-nav_2" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <ul id="charts-nav_3" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="{{url('adminpeyment')}}">
               <i class="bi bi-circle"></i><span>تراکنش ها</span>
@@ -248,11 +248,13 @@
           <span>اجاره وب سایت</span>
         </a>
       </li><!-- End F.A.Q Page Nav -->
-
+<?php 
+  $noti_count=App\Models\noti_send::where('noti_sends.user_id',auth()->user()->id)->where('noti_sends.seen','0')->get()->count();
+?>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-contact.html">
+        <a class="nav-link collapsed" href="{{url('notification')}}">
           <i class="bi bi-envelope"></i>
-          <span>اطلاعیه ها</span>
+          <span>اطلاعیه ها</span>            <span class="badge bg_primary"> {{$noti_count}} </span>     
         </a>
       </li><!-- End Contact Page Nav -->
       <li class="nav-item">
@@ -261,12 +263,13 @@
         </a>
         <ul id="charts-nav_2" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="charts-apexcharts.html">
+            <a href="{{url('newticket')}}">
               <i class="bi bi-circle"></i><span>ارسال تیکت جدید </span>
             </a>
           </li>
           <li>
-            <a href="charts-echarts.html">
+            
+            <a href="{{url('allticket')}}">
               <i class="bi bi-circle"></i><span>مدیریت تیکت ها</span>
             </a>
           </li>
@@ -311,8 +314,11 @@
   <script src="{{ asset('Dashbord/assets/vendor/tinymce/tinymce.min.js') }}"></script>
   <script src="{{ asset('Dashbord/assets/vendor/php-email-form/validate.js') }}"></script>
 
+
   <!-- Template Main JS File -->
   <script src="{{ asset('Dashbord/assets/js/main.js') }}"></script>
+
+
 
 
     <!-- Scripts -->

@@ -9,6 +9,8 @@ use App\Models\fild;
 use App\Models\project_type;
 use App\Models\user_detile;
 use App\Models\payment;
+use App\Models\noti_send;
+
 
 
 use Carbon\Carbon;        
@@ -104,7 +106,7 @@ class HomeController extends Controller
                         ->join('filds','orders.fild_id','filds.id')
                         ->join('project_types','projects.project_type_id','project_types.id')
                         ->LeftJoin('payments','payments.order_id','orders.id')
-                        ->select('project_types.name as project_type','projects.title as project_title','packeges.name as packege_name','packeges.detile as packege_detile','packeges.price as packege_price','orders.admin as order_admin','payments.type as payment_type','payments.detile as payment_detile','orders.id as id')
+                        ->select('orders.packege_id','project_types.name as project_type','projects.title as project_title','packeges.name as packege_name','packeges.detile as packege_detile','packeges.price as packege_price','orders.admin as order_admin','payments.type as payment_type','payments.detile as payment_detile','orders.id as id')
                         ->where('orders.End_time','+1')
                         ->get();
 
@@ -113,7 +115,7 @@ class HomeController extends Controller
                         ->join('filds','orders.fild_id','filds.id')
                         ->join('project_types','projects.project_type_id','project_types.id')
                         ->LeftJoin('payments','payments.order_id','orders.id')
-                        ->select('project_types.name as project_type','projects.title as project_title','packeges.name as packege_name','packeges.detile as packege_detile','packeges.price as packege_price','orders.admin as order_admin','payments.type as payment_type','payments.detile as payment_detile','orders.name as order_name','orders.End_time as order_End_time','orders.created_at as order_create','orders.id as id')
+                        ->select('orders.packege_id','project_types.name as project_type','projects.title as project_title','packeges.name as packege_name','packeges.detile as packege_detile','packeges.price as packege_price','orders.admin as order_admin','payments.type as payment_type','payments.detile as payment_detile','orders.name as order_name','orders.End_time as order_End_time','orders.created_at as order_create','orders.id as id')
                         ->where('orders.status','1')->orderBy('orders.id','desc')
                         ->get();
 
@@ -152,6 +154,13 @@ class HomeController extends Controller
         $payment->updated_at = $request->time_finish;
         $payment->save();
         }
+
+        $noti_send=new noti_send;
+        $noti_send->noti_type_id = 1;
+        $noti_send->order_id = $order->id;
+        $noti_send->user_id = $order->user_id;
+        $noti_send->seen = 0;
+        $noti_send->save();
         
         return redirect('webadmin')->with('success','chenge data succes');
 
@@ -188,12 +197,26 @@ class HomeController extends Controller
         if($request->status==1){
             $order->status = 1;
             $order->End_time = $end_time;
+
+           
+
+
         }
         if($request->status==0){
             $payment=payment::where('order_id',$request->order_id);
             $payment->delete();
             $order->End_time = null;
             $order->status = 'در انتظار پرداخت';
+
+            $noti_send=new noti_send;
+            $noti_send->noti_type_id = 2;
+            $noti_send->order_id = $order->id;
+            $noti_send->user_id = $order->user_id;
+            $noti_send->seen = 0;
+            $noti_send->save();
+
+
+
         }
         $order->save();
         return redirect('adminpeyment')->with('success','chenge data succes');

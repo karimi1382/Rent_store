@@ -13,6 +13,9 @@ class User extends Authenticatable
     public function orders(){
         return $this->hasMany(order::class);
     }
+    public function noti_sends(){
+        return $this->hasMany(noti_send::class);
+    }
     public function user_detiles(){
         return $this->hasone(user_detile::class,'user_id','id');
     }

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\order;
 use Illuminate\Http\Request;
 use App\Models\payment;
+use App\Models\noti_send;
+
 
 use App\Http\Requests\taskrequest;
 
@@ -87,6 +89,15 @@ class OrderController extends Controller
         $peyment->user_id = $request->user_id;
         $peyment->order_id = $request->order_id;
         $peyment->save();
+
+        $noti_send=new noti_send;
+        $noti_send->noti_type_id = 3;
+        $noti_send->order_id = $request->order_id;
+        $noti_send->user_id = $request->user_id;
+        $noti_send->seen = 0;
+
+        $noti_send->save();
+
         return redirect()->route('cartshow')->with('peyment','peyment successfully');
 
 
@@ -106,6 +117,16 @@ class OrderController extends Controller
         $order=order::findOrFail($request->id);
         $order->End_time = '-1';
         $order->save();
+
+        $noti_send=new noti_send;
+        $noti_send->noti_type_id = 4;
+        $noti_send->order_id = $order->id;
+        $noti_send->user_id = $request->auth()->user()->id;
+        $noti_send->seen = 0;
+        $noti_send->save();
+
+
+
         return redirect()->route('cartshow')->with('alarm','delete successfully');
 
     }

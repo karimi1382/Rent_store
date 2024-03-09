@@ -20,5 +20,8 @@ class order extends Model
     public function filds(){
         return $this->belongsTo(fild::class);
     }
+    public function noti_sends(){
+        return $this->hasMany(noti_send::class);
+    }
     protected $fillable=['user_id','project_id','packege_id','fild_id','name','color_1','color_2','color_3','url','admin','takephoto'];
 }
