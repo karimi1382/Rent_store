@@ -53,7 +53,15 @@
               
                           {{$allticket->ticket_types->title}}   
                         </h4>
-                        <p>وضعیت : منتظر پاسخ کارشناس پشتیبانی</p>
+                        <p> فایل پیوست : 
+                        @if(isset($allticket->file))
+                       دارد - جهت مشاهده بر روی 
+                       <a href="{{asset('storage/user/'.$allticket->user_id.'/ticket/'.$allticket->id.'/'.$allticket->file)}}" > این لینک </a>
+                       کلیک نمایید
+                        @else
+                        ندارد
+                        @endif
+                        </p>
                         <a href="{{url('ticketdetail/ ').$allticket->id}}" class="btn btn_banafsh" >مشاهده سابقه تیکت</a>
                         
                         <div class="text-start time_tikect">

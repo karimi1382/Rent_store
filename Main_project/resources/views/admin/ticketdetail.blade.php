@@ -38,6 +38,15 @@
                         <P>
                             {{$alltickets->text}}
                         </P>
+                        <p> فایل پیوست : 
+                        @if(isset($alltickets->file))
+                       دارد - جهت مشاهده بر روی 
+                       <a href="{{asset('storage/user/'.$alltickets->user_id.'/ticket/'.$alltickets->id.'/'.$alltickets->file)}}" > این لینک </a>
+                       کلیک نمایید
+                        @else
+                        ندارد
+                        @endif
+                        </p>
                         @if($alltickets->status==1)
                         <form method="post" action="{{url('close_ticket')}}" >
                             @csrf
@@ -88,6 +97,15 @@
                         <p>
                             {{$ticketdetail->answer}}
                         </p>
+                        <p> فایل پیوست : 
+                        @if(isset($ticketdetail->file_address))
+                       دارد - جهت مشاهده بر روی 
+                       <a href="{{asset('storage/user/'.$ticketdetail->user_id.'/ticket/'.$ticketdetail->main_ticket_id.'/'.$ticketdetail->file_address)}}" > این لینک </a>
+                       کلیک نمایید
+                        @else
+                        ندارد
+                        @endif
+                        </p>
                         <div class="text-start time_tikect">
                             زمان ارسال : {{verta($ticketdetail->created_at)->timezone('Asia/Tehran')->format('j F Y - h:i - A')}}
                         </div>
@@ -98,13 +116,13 @@
                 <div class="card">
                     <div class="card-body">
                       <h5 class="card-title">فرم پاسخ </h5>
-                      <form class="row g-3" method="post" action="{{url('addanswerticket')}}">
+                      <form class="row g-3" method="post" action="{{url('addanswerticket')}}" enctype='multipart/form-data'>
                           @csrf
                           
                          
                           <div class="col-12">
                             <div class="">
-                              <textarea class="form-control" name="text" placeholder="متن خود را وارد نمایید" id="floatingTextarea" style="height: 100px;"></textarea>
+                              <textarea class="form-control" name="text" placeholder="متن خود را وارد نمایید" id="floatingTextarea" style="height: 100px;" required ></textarea>
                             </div>
                           </div>
                           

@@ -1,7 +1,10 @@
 @extends('layouts.Dashbord_head')
 
 @section('content')
+@if(session()->has('error'))
+<div class=" alert alert-danger text-center">حجم فایل پیوست باید کمتر از 5 مگابایت باشد</div>
 
+@endif
 
 
 
@@ -24,7 +27,7 @@
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">فرم زیر را برای ارسال تیکت جدید پر نمایید</h5>
-                    <form class="row g-3" method="post" action="{{url('addticket')}}">
+                    <form class="row g-3" method="post" action="{{url('addticket')}}" enctype='multipart/form-data'>
                         @csrf
                         <div class="col-md-12">
                             <div class=" mb-3">
@@ -41,13 +44,13 @@
                        
                         <div class="col-12">
                           <div class="">
-                            <textarea class="form-control" name="text" placeholder="متن خود را وارد نمایید" id="floatingTextarea" style="height: 100px;"></textarea>
+                            <textarea class="form-control" name="text" placeholder="متن خود را وارد نمایید" id="floatingTextarea" style="height: 100px;" required></textarea>
                           </div>
                         </div>
                         
                         <div class="col-md-6">
                           <div class="form-floating">
-                            <input type="file" name="file" class="form-control" id="floatingZip" placeholder="پیوست فایل">
+                            <input type="file" name="File" class="form-control" id="floatingZip" placeholder="پیوست فایل">
                             <label for="floatingZip">پیوست فایل</label>
                           </div>
                         </div>

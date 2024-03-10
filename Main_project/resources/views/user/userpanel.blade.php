@@ -143,7 +143,150 @@
 
               </div>
             </div><!-- End Revenue Card -->
+          @if(auth::user()->id==1)
+              <div class="col-md-6">
+                   <!-- Website Traffic -->
+                  
 
+
+                   <?php 
+           
+                  
+                                                            $type_1=App\Models\order::join('projects','orders.project_id','projects.id')
+                                                            ->join('project_types','projects.project_type_id','project_types.id')
+                                                            ->where('project_types.id','1')->where('orders.status',1)->get()->count();
+
+                                                            $type_2=App\Models\order::join('projects','orders.project_id','projects.id')
+                                                            ->join('project_types','projects.project_type_id','project_types.id')
+                                                            ->where('project_types.id','2')->where('orders.status',1)->get()->count();
+
+                                                            $type_3=App\Models\order::join('projects','orders.project_id','projects.id')
+                                                            ->join('project_types','projects.project_type_id','project_types.id')
+                                                            ->where('project_types.id','3')->where('orders.status',1)->get()->count();
+
+                                                            $type_4=App\Models\order::join('projects','orders.project_id','projects.id')
+                                                            ->join('project_types','projects.project_type_id','project_types.id')
+                                                            ->where('project_types.id','4')->where('orders.status',1)->get()->count();
+
+                                                            $type_5=App\Models\order::join('projects','orders.project_id','projects.id')
+                                                            ->join('project_types','projects.project_type_id','project_types.id')
+                                                            ->where('project_types.id','5')->where('orders.status',1)->get()->count();
+                                                        
+                                                            
+                                                          
+                                                            ?>
+                                                          
+                                                            <div style="display:none">
+                                                              <p id="name_1" >فروشگاه</p>
+                                                              <div id="num_1">{{$type_1}}</div>
+
+                                                              <p id="name_2" >تجاری</p>
+                                                              <div id="num_2">{{$type_2}}</div>
+
+                                                              <p id="name_3" >شخصی</p>
+                                                              <div id="num_3">{{$type_3}}</div>
+
+                                                              <p id="name_4" >آکادمی</p>
+                                                              <div id="num_4">{{$type_4}}</div>
+
+                                                              <p id="name_5" >خدماتی</p>
+                                                              <div id="num_5">{{$type_5}}</div>
+                                                              </div>
+                                                           
+
+          <div class="card">
+      
+
+            <div class="card-body pb-0">
+              <h5 class="card-title">نمودار به تفکیک پروژه <span></span></h5>
+
+              <div id="trafficChart" style="min-height: 400px;" class="echart"></div>
+
+              <script>
+               
+               name_1=document.getElementById("name_1").innerHTML;
+               num_1=document.getElementById("num_1").innerHTML;
+
+               name_2=document.getElementById("name_2").innerHTML;
+               num_2=document.getElementById("num_2").innerHTML;
+                
+               name_3=document.getElementById("name_3").innerHTML;
+               num_3=document.getElementById("num_3").innerHTML;
+   
+               name_4=document.getElementById("name_4").innerHTML;
+               num_4=document.getElementById("num_4").innerHTML;
+
+               name_5=document.getElementById("name_5").innerHTML;
+               num_5=document.getElementById("num_5").innerHTML;
+                
+                document.addEventListener("DOMContentLoaded", () => {
+                  echarts.init(document.querySelector("#trafficChart")).setOption({
+                    tooltip: {
+                      trigger: 'item'
+                    },
+                    legend: {
+                      top: '5%',
+                      left: 'center'
+                    },
+                    series: [{
+                      name: 'وبسایت ها',
+                      type: 'pie',
+                      radius: ['40%', '70%'],
+                      avoidLabelOverlap: false,
+                      label: {
+                        show: false,
+                        position: 'center'
+                      },
+                      emphasis: {
+                        label: {
+                          show: true,
+                          fontSize: '18',
+                          fontWeight: 'bold',
+                          
+                          
+                        }
+                      },
+                      labelLine: {
+                        show: false
+                      },
+                      
+                      data: [
+                       
+
+
+                                   
+                        {
+                          value: num_1,
+                          name: name_1
+                        },
+                    
+
+                        {
+                          value: num_2,
+                          name: name_2
+                        },
+                        {
+                          value: num_3,
+                          name: name_3
+                        },
+                        {
+                          value: num_4,
+                          name: name_4
+                        },
+                        {
+                          value: num_5,
+                          name: name_5
+                        }
+                      ]
+                    }]
+                  });
+                });
+              </script>
+
+            </div>
+          </div><!-- End Website Traffic -->
+              </div>
+          @endif
          
             <div class="col-lg-6">
               <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">

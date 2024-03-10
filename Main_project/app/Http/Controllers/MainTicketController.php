@@ -18,10 +18,36 @@ class MainTicketController extends Controller
         return view('user.newticket',compact('ticket_types'));
     }
     public function insert(Request $request){
+
+        $request->validate([
+            'File' => 'sometimes|file|max:5000',
+        ]);
+        
+        if(isset($request->File)){
+        $file_size=($request->File)->getSize();
+        if($file_size > 5000000){
+            return redirect('newticket')->with('error','no add ticket');
+        }
+    }
+
+
         $tickect=new main_ticket;
         $tickect->ticket_type_id       =       $request->ticket_type_id;
         $tickect->text                  =       $request->text;
         $tickect->user_id               =      auth::user()->id;
+
+        if($request->File()) {
+
+            $ticket_id=main_ticket::orderby('id','DESC')->first();
+            $id=$ticket_id->id;
+            $id++;
+     
+            $fileName = time().'_'.$request->File->getClientOriginalName();
+            $filePath = $request->File->storeAs('user/'.auth::user()->id.'/ticket/'.$id.'/', $fileName, 'public');
+            $tickect->file = $fileName;
+        } 
+
+
         $tickect->save();
         return redirect('allticket')->with('success','add ticket');
     }
@@ -41,11 +67,31 @@ class MainTicketController extends Controller
         }
     }
     public function addanswerticket(Request $request){
+        $request->validate([
+            'file' => 'sometimes|file|max:5000',
+        ]);
+        
+        if(isset($request->file)){
+        $file_size=($request->file)->getSize();
+        if($file_size > 5000000){
+            return redirect('newticket')->with('error','no add ticket');
+        }
+    }
+
         $answer_ticket=new answer_ticket;
         $answer_ticket->main_ticket_id  =  $request->main_ticket_id;
         $answer_ticket->user_id         =   auth::user()->id;
-        $answer_ticket->file_id         =   $request->file;
         $answer_ticket->answer          =   $request->text;
+
+        if($request->File()) {
+
+       
+     
+            $fileName = time().'_'.$request->file->getClientOriginalName();
+            $filePath = $request->file->storeAs('user/'.auth::user()->id.'/ticket/'.$request->main_ticket_id.'/', $fileName, 'public');
+            $answer_ticket->file_address = $fileName;
+        } 
+
         $answer_ticket->save();
 
         $mane_ticket=main_ticket::find($request->main_ticket_id);
