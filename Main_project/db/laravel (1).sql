@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Mar 09, 2024 at 02:13 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.1.12
+-- Host: 127.0.0.1
+-- Generation Time: Mar 10, 2024 at 01:52 PM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 8.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,11 +32,26 @@ CREATE TABLE `answer_tickets` (
   `main_ticket_id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `file_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `answer` text NOT NULL,
+  `answer` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `status` int(11) NOT NULL DEFAULT 1
+  `status` int(11) NOT NULL DEFAULT 1,
+  `file_address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `answer_tickets`
+--
+
+INSERT INTO `answer_tickets` (`id`, `main_ticket_id`, `user_id`, `file_id`, `answer`, `created_at`, `updated_at`, `status`, `file_address`) VALUES
+(11, 6, 1, NULL, 'شما میتوانید در قسمت سرویس های خریداری شده زمان بارگذاری خود را مشاهده نمایید', '2024-03-09 10:13:13', '2024-03-09 10:13:13', 1, NULL),
+(12, 7, 2, NULL, 'gggg', '2024-03-10 06:10:28', '2024-03-10 06:10:28', 1, '1710063628_0752b719743a35c91407c47fd6814da5.jpg'),
+(13, 7, 2, NULL, 'sdfsfsdf', '2024-03-10 06:14:16', '2024-03-10 06:14:16', 1, '1710063856_537069.webp'),
+(14, 7, 1, NULL, 'sdf', '2024-03-10 06:25:20', '2024-03-10 06:25:20', 1, '1710064520_image7-3.webp'),
+(15, 7, 1, NULL, 'sfgsg', '2024-03-10 06:36:59', '2024-03-10 06:36:59', 1, '1710065219_Screenshot (334).png'),
+(16, 7, 2, NULL, 'dfsdf', '2024-03-10 06:41:03', '2024-03-10 06:41:03', 1, NULL),
+(17, 7, 1, NULL, 'ddssfsdf', '2024-03-10 06:42:36', '2024-03-10 06:42:36', 1, NULL),
+(18, 7, 2, NULL, 'sdfsdf', '2024-03-10 06:42:50', '2024-03-10 06:42:50', 1, '1710065570_Awesome-Natural-Desktop-Background-wallpaper.jpg');
 
 -- --------------------------------------------------------
 
@@ -46,11 +61,11 @@ CREATE TABLE `answer_tickets` (
 
 CREATE TABLE `failed_jobs` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `uuid` varchar(255) NOT NULL,
-  `connection` text NOT NULL,
-  `queue` text NOT NULL,
-  `payload` longtext NOT NULL,
-  `exception` longtext NOT NULL,
+  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -62,7 +77,7 @@ CREATE TABLE `failed_jobs` (
 
 CREATE TABLE `filds` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -95,8 +110,8 @@ INSERT INTO `filds` (`id`, `name`, `created_at`, `updated_at`) VALUES
 
 CREATE TABLE `files` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `file_name` varchar(255) NOT NULL,
-  `file_address` varchar(255) NOT NULL,
+  `file_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `file_address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -111,12 +126,20 @@ CREATE TABLE `main_tickets` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `ticket_type_id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
-  `text` text NOT NULL,
+  `text` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `file` varchar(255) DEFAULT NULL
+  `file` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `main_tickets`
+--
+
+INSERT INTO `main_tickets` (`id`, `ticket_type_id`, `user_id`, `text`, `status`, `created_at`, `updated_at`, `file`) VALUES
+(6, 2, 2, 'با سلام\r\nلطفا زمان بارگذاری سایت را به بنده اطلاع دهید\r\nبا تشکر', 0, '2024-03-09 10:10:56', '2024-03-09 10:13:46', NULL),
+(7, 6, 2, 'لطفا راهنمایی کنید چطونه این عکس را در لوگو قرار دهم', 1, '2024-03-10 03:26:26', '2024-03-10 03:26:26', '1710053786_4834ee1901f8243fb6495e1f9f0d2a868985ff1a.jpeg');
 
 -- --------------------------------------------------------
 
@@ -126,7 +149,7 @@ CREATE TABLE `main_tickets` (
 
 CREATE TABLE `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255) NOT NULL,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -154,7 +177,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (48, '2024_03_07_132118_create_files_table', 6),
 (49, '2024_03_07_132124_create_answer_tickets_table', 6),
 (50, '2024_03_07_143024_add_paid_to_answer_tickets_table', 7),
-(51, '2024_03_07_144553_add_paid_to_main_tickets_table', 8);
+(51, '2024_03_07_144553_add_paid_to_main_tickets_table', 8),
+(52, '2024_03_10_093832_add_columnname_to_tablename_answer_tickets', 9);
 
 -- --------------------------------------------------------
 
@@ -172,6 +196,20 @@ CREATE TABLE `noti_sends` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `noti_sends`
+--
+
+INSERT INTO `noti_sends` (`id`, `noti_type_id`, `order_id`, `user_id`, `seen`, `created_at`, `updated_at`) VALUES
+(24, 3, 47, 2, 1, '2024-03-09 10:04:15', '2024-03-09 10:04:34'),
+(25, 2, 47, 2, 1, '2024-03-09 10:04:43', '2024-03-09 10:04:51'),
+(26, 3, 47, 2, 1, '2024-03-09 10:04:59', '2024-03-09 10:10:04'),
+(27, 1, 47, 2, 1, '2024-03-09 10:09:37', '2024-03-09 10:10:07'),
+(28, 3, 48, 2, 1, '2024-03-10 07:01:31', '2024-03-10 07:02:27'),
+(29, 1, 48, 2, 1, '2024-03-10 07:02:51', '2024-03-10 07:03:01'),
+(30, 3, 46, 1, 0, '2024-03-10 08:51:12', '2024-03-10 08:51:12'),
+(31, 1, 48, 2, 0, '2024-03-10 08:51:24', '2024-03-10 08:51:24');
+
 -- --------------------------------------------------------
 
 --
@@ -180,9 +218,9 @@ CREATE TABLE `noti_sends` (
 
 CREATE TABLE `noti_types` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `subject` varchar(255) NOT NULL,
-  `text` varchar(255) NOT NULL,
-  `url` varchar(255) DEFAULT NULL,
+  `subject` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `text` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -209,19 +247,28 @@ CREATE TABLE `orders` (
   `project_id` bigint(20) UNSIGNED NOT NULL,
   `packege_id` bigint(20) UNSIGNED NOT NULL,
   `fild_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `color_1` varchar(255) NOT NULL,
-  `color_2` varchar(255) NOT NULL,
-  `color_3` varchar(255) NOT NULL,
-  `url` varchar(255) DEFAULT NULL,
-  `admin` varchar(255) DEFAULT NULL,
-  `takephoto` varchar(255) DEFAULT NULL,
-  `Logo` varchar(255) DEFAULT NULL,
-  `status` varchar(255) NOT NULL DEFAULT 'در انتظار بررسی',
-  `End_time` varchar(255) DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `color_1` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `color_2` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `color_3` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `admin` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `takephoto` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `Logo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'در انتظار بررسی',
+  `End_time` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `user_id`, `project_id`, `packege_id`, `fild_id`, `name`, `color_1`, `color_2`, `color_3`, `url`, `admin`, `takephoto`, `Logo`, `status`, `End_time`, `created_at`, `updated_at`) VALUES
+(46, 1, 4, 3, 11, 'تست', '#000000', '#000000', '#000000', 'test', NULL, NULL, NULL, '1', '2025-03-10 15:51:18', NULL, '2024-03-10 08:51:18'),
+(47, 2, 1, 2, 15, 'فروشگاه لباس مرمر', '#563d7c', '#0000ff', '#000000', 'marmar', 'on', NULL, '2.png', '1', '2024-09-09 17:05:06', '2024-03-09 10:03:45', '2024-03-09 10:05:06'),
+(48, 2, 3, 1, 2, 'ffgdfg', '#563d7c', '#0000ff', '#000000', 'fsf', 'on', NULL, '1710066686_937.jpg', '1', '2024-06-10 14:01:38', '2024-03-10 07:01:26', '2024-03-10 07:01:38');
 
 -- --------------------------------------------------------
 
@@ -231,9 +278,9 @@ CREATE TABLE `orders` (
 
 CREATE TABLE `packeges` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `price` int(11) NOT NULL,
-  `detile` text NOT NULL,
+  `detile` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -254,8 +301,8 @@ INSERT INTO `packeges` (`id`, `name`, `price`, `detile`, `created_at`, `updated_
 --
 
 CREATE TABLE `password_resets` (
-  `email` varchar(255) NOT NULL,
-  `token` varchar(255) NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -275,13 +322,22 @@ INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
 CREATE TABLE `payments` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `type` int(11) NOT NULL,
-  `detile` text NOT NULL DEFAULT 'در انتظار پرداخت',
-  `status` varchar(225) NOT NULL,
+  `detile` text COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'در انتظار پرداخت',
+  `status` varchar(225) COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `order_id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `payments`
+--
+
+INSERT INTO `payments` (`id`, `type`, `detile`, `status`, `user_id`, `order_id`, `created_at`, `updated_at`) VALUES
+(39, 1, '23423', '6600000', 2, 47, '2024-03-09 10:04:59', '2024-03-09 14:04:59'),
+(40, 1, 'wefsdfsf', '3600000', 2, 48, '2024-03-10 07:01:31', '2024-03-10 07:01:31'),
+(41, 2, '25535345', '9000000', 1, 46, '2024-03-10 08:51:12', '2024-03-10 08:51:12');
 
 -- --------------------------------------------------------
 
@@ -291,11 +347,11 @@ CREATE TABLE `payments` (
 
 CREATE TABLE `personal_access_tokens` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `tokenable_type` varchar(255) NOT NULL,
+  `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tokenable_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `token` varchar(64) NOT NULL,
-  `abilities` text DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `abilities` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `last_used_at` timestamp NULL DEFAULT NULL,
   `expires_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -310,10 +366,10 @@ CREATE TABLE `personal_access_tokens` (
 
 CREATE TABLE `projects` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `pic` varchar(255) DEFAULT NULL,
-  `url` varchar(255) DEFAULT NULL,
-  `description` text DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pic` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `project_type_id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -338,7 +394,7 @@ INSERT INTO `projects` (`id`, `title`, `pic`, `url`, `description`, `project_typ
 
 CREATE TABLE `project_types` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -362,7 +418,7 @@ INSERT INTO `project_types` (`id`, `name`, `created_at`, `updated_at`) VALUES
 
 CREATE TABLE `ticket_types` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(255) NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -387,11 +443,11 @@ INSERT INTO `ticket_types` (`id`, `title`, `created_at`, `updated_at`) VALUES
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) NOT NULL,
-  `remember_token` varchar(100) DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -414,19 +470,19 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 CREATE TABLE `user_detiles` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
-  `city` varchar(255) DEFAULT NULL,
-  `country` varchar(255) DEFAULT NULL,
-  `address` varchar(255) DEFAULT NULL,
-  `mobile` varchar(255) DEFAULT NULL,
-  `instagram` varchar(255) DEFAULT NULL,
-  `linkedin` varchar(255) DEFAULT NULL,
-  `mobile_verify` varchar(255) DEFAULT NULL,
-  `email_verify` varchar(255) DEFAULT NULL,
-  `mobile_random_code` varchar(255) DEFAULT NULL,
-  `email_random_code` varchar(255) DEFAULT NULL,
+  `city` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `country` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mobile` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `instagram` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `linkedin` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mobile_verify` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email_verify` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mobile_random_code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email_random_code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `photo_address` varchar(255) DEFAULT NULL
+  `photo_address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -434,8 +490,8 @@ CREATE TABLE `user_detiles` (
 --
 
 INSERT INTO `user_detiles` (`id`, `user_id`, `city`, `country`, `address`, `mobile`, `instagram`, `linkedin`, `mobile_verify`, `email_verify`, `mobile_random_code`, `email_random_code`, `created_at`, `updated_at`, `photo_address`) VALUES
-(1, 1, 'تهران', 'ایران', 'تهران - باغ فیض', '09133528014', 'mahdi_programmerr', 'karimi1382', NULL, NULL, NULL, NULL, '2024-03-05 03:59:24', '2024-03-09 08:38:46', '1709986126_pngtree-businessman-user-avatar-wearing-suit-with-red-tie-png-image_8385663.png'),
-(2, 2, 'تهران', 'ایران', 'تهران - خیابان اول کوچه دوم', '09133528014', 'mahdi_programmerr', 'karimi1382', NULL, NULL, NULL, NULL, '2024-03-05 04:02:23', '2024-03-05 06:26:42', NULL),
+(1, 1, 'تهران', 'ایران', 'تهران - باغ فیض', '09133528014', 'mahdi_programmerr', 'karimi1382', NULL, NULL, NULL, NULL, '2024-03-05 03:59:24', '2024-03-10 06:41:56', '1710065516_How_tracking_user_behavior_on_your_website_can_improve_customer_experience.png'),
+(2, 2, 'تهران', 'ایران', 'تهران - خیابان اول کوچه دوم', '09133528014', 'mahdi_programmerr', 'karimi1382', NULL, NULL, NULL, NULL, '2024-03-05 04:02:23', '2024-03-10 07:02:16', '1710066736_1OGxc8.jpg'),
 (3, 3, 'یزد', 'ایران', 'یزد - خیابان کاشانی', '۰۹۱۳۳۵۲۴۲۵۲', 'maryammm', 'jsdnvjsd', NULL, NULL, NULL, NULL, '2024-03-07 09:55:03', '2024-03-09 07:43:55', '1709982835_profile-img.jpg');
 
 --
@@ -578,7 +634,7 @@ ALTER TABLE `user_detiles`
 -- AUTO_INCREMENT for table `answer_tickets`
 --
 ALTER TABLE `answer_tickets`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -602,19 +658,19 @@ ALTER TABLE `files`
 -- AUTO_INCREMENT for table `main_tickets`
 --
 ALTER TABLE `main_tickets`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `noti_sends`
 --
 ALTER TABLE `noti_sends`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `noti_types`
@@ -626,7 +682,7 @@ ALTER TABLE `noti_types`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `packeges`
@@ -638,7 +694,7 @@ ALTER TABLE `packeges`
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
